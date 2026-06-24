@@ -450,7 +450,7 @@ window.SITE_CONTENT = {
       contactTitle: "Contact",
       contactNote: "Phone number and personal address are not displayed publicly.",
       contact: {
-        office: ["12 Gaetbeol-ro, Yeonsu-gu, Incheon", "mori@mori-corp.io", "chzhdndbaoq@inu.ac.kr"],
+        office: ["12 Gaetbeol-ro, Yeonsu-gu, Incheon", "mori@mori-corp.io", "juholee@inu.ac.kr"],
         personal: ["joholee123@gmail.com", "chzhdndbaoq@naver.com"],
       },
       skills: [
@@ -560,7 +560,7 @@ window.SITE_CONTENT = {
       contactTitle: "Contact",
       contactNote: "전화번호와 개인 주소는 공개하지 않습니다.",
       contact: {
-        office: ["12 Gaetbeol-ro, Yeonsu-gu, Incheon", "mori@mori-corp.io", "chzhdndbaoq@inu.ac.kr"],
+        office: ["12 Gaetbeol-ro, Yeonsu-gu, Incheon", "mori@mori-corp.io", "juholee@inu.ac.kr"],
         personal: ["joholee123@gmail.com", "chzhdndbaoq@naver.com"],
       },
       skills: [
@@ -670,7 +670,7 @@ window.SITE_CONTENT = {
       contactTitle: "Contact",
       contactNote: "電話番号と個人住所は公開していません。",
       contact: {
-        office: ["12 Gaetbeol-ro, Yeonsu-gu, Incheon", "mori@mori-corp.io", "chzhdndbaoq@inu.ac.kr"],
+        office: ["12 Gaetbeol-ro, Yeonsu-gu, Incheon", "mori@mori-corp.io", "juholee@inu.ac.kr"],
         personal: ["joholee123@gmail.com", "chzhdndbaoq@naver.com"],
       },
       skills: [
