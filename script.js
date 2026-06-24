@@ -1,12 +1,22 @@
 const state = {
   route: "home",
   lang: localStorage.getItem("site-lang") || "ko",
-  theme: localStorage.getItem("site-theme") || "dark",
+  theme: getAutoThemeByTime(),
   tracks: [],
   currentTrackIndex: 0,
   isPlaying: false,
   isSeeking: false,
 };
+
+function getAutoThemeByTime() {
+  const hour = new Date().getHours();
+
+  if (hour >= 6 && hour < 18) {
+    return "light";
+  }
+
+  return "dark";
+}
 
 const BGM_SCAN_LIMIT = 30;
 
