@@ -1044,19 +1044,13 @@ body[data-theme="light"] .skill-bar {
 }
 
 .anime-log-hidden {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
+  display: none;
   margin-top: 0;
-  transition:
-    max-height 0.55s ease,
-    opacity 0.45s ease,
-    margin-top 0.45s ease;
 }
 
 .anime-log-hidden.open {
-  max-height: 4000px;
-  opacity: 1;
+  display: grid;
+  gap: 14px;
   margin-top: 14px;
 }
 
