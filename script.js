@@ -730,16 +730,16 @@ function changeThemeSmoothly(nextTheme) {
   setTimeout(() => {
     state.theme = nextTheme;
     document.body.dataset.theme = state.theme;
-  }, 260);
+  }, 650);
 
   setTimeout(() => {
     overlay.classList.remove("visible");
-  }, 420);
+  }, 760);
 
   setTimeout(() => {
     overlay.remove();
     isThemeTransitioning = false;
-  }, 920);
+  }, 1500);
 }
 
 
