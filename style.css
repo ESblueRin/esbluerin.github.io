@@ -880,13 +880,25 @@ p {
 }
 
 .skill-title {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: start;
+  column-gap: 12px;
   color: var(--text);
   font-size: 13px;
   font-weight: 900;
   margin-bottom: 8px;
+}
+
+.skill-title span:first-child {
+  min-width: 0;
+  line-height: 1.45;
+}
+
+.skill-title span:last-child {
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .skill-bar {
