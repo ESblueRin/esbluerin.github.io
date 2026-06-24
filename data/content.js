@@ -780,7 +780,7 @@ window.SITE_CONTENT = {
         title: "AI Virtual YouTuber Project",
         text:
           "A personal project for experimenting with AI characters, voice, real-time interaction, short-form content, and virtual entertainment workflows.",
-        youtubeEmbed: "https://www.youtube.com/watch?v=2zIn-St_VaQ",
+        youtubeEmbed: "https://www.youtube.com/embed/2zIn-St_VaQ",
         youtubeUrl: "https://www.youtube.com/@%E3%82%A4%E3%83%81%E3%82%B4%E3%81%86/videos",
         note:
           "Replace VIDEO_ID with your actual YouTube video ID. You can also edit this text in data/content.js.",
@@ -824,7 +824,7 @@ window.SITE_CONTENT = {
         title: "AI 버츄얼 유튜버 프로젝트",
         text:
           "AI 캐릭터, 음성, 실시간 상호작용, 쇼츠 콘텐츠, 버츄얼 엔터테인먼트 흐름을 실험하기 위한 개인 프로젝트입니다.",
-          youtubeEmbed: "https://www.youtube.com/watch?v=2zIn-St_VaQ",
+          youtubeEmbed: "https://www.youtube.com/embed/2zIn-St_VaQ",
         youtubeUrl: "https://www.youtube.com/@%E3%82%A4%E3%83%81%E3%82%B4%E3%81%86/videos",
         note:
           "VIDEO_ID 부분을 실제 유튜브 영상 ID로 바꾸면 페이지 안에서 재생됩니다. 설명 문구는 data/content.js에서 수정하면 됩니다.",
@@ -894,7 +894,7 @@ window.SITE_CONTENT = {
         title: "AIバーチャルYouTuberプロジェクト",
         text:
           "AIキャラクター、音声、リアルタイム対話、ショート動画、バーチャルエンターテインメントの流れを実験する個人プロジェクトです。",
-     youtubeEmbed: "https://www.youtube.com/watch?v=2zIn-St_VaQ",
+     youtubeEmbed: "https://www.youtube.com/embed/2zIn-St_VaQ",
         youtubeUrl: "https://www.youtube.com/@%E3%82%A4%E3%83%81%E3%82%B4%E3%81%86/videos",
         note:
           "VIDEO_IDを実際のYouTube動画IDに置き換えるとページ内で再生できます。",
