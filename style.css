@@ -1354,3 +1354,21 @@ body::after,
     grid-column: 1 / -1;
   }
 }
+
+.skill-title {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) max-content !important;
+  align-items: start !important;
+  column-gap: 12px !important;
+}
+
+.skill-title span:first-child {
+  min-width: 0 !important;
+  line-height: 1.45 !important;
+}
+
+.skill-title span:last-child {
+  white-space: nowrap !important;
+  text-align: right !important;
+  font-variant-numeric: tabular-nums !important;
+}
