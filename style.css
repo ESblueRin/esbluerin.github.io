@@ -140,10 +140,24 @@ body[data-theme="light"]::after {
   filter: blur(0.4px);
 }
 
-body[data-theme="light"] .star-field {
-  display: none;
+.star-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+  opacity: 1;
+  transition: opacity 0.85s ease;
+  will-change: opacity;
 }
 
+body[data-theme="light"] .star-field {
+  opacity: 0;
+}
+
+body[data-theme="dark"] .star-field {
+  opacity: 1;
+}
 .rain-layer {
   position: fixed;
   inset: 0;
