@@ -163,258 +163,274 @@ window.SITE_CONTENT = {
   },
 
   projects: {
-    en: {
-      eyebrow: "Robotic Intelligence Network",
-      title: "Project RIN",
-      subtitle:
-        "A research-oriented architecture for controlling mobile robots with a frozen VLM, lightweight action adapter, safety correction, and continual learning.",
-      diagramTitle: "Overall Architecture",
-      diagram: [
-        "Camera / Video / Natural Language / Robot State",
-        "Frozen VLM",
-        "Action Adapter",
-        "Safety Filter",
-        "ROS2 Controller / Nav2 / Gazebo",
-        "Experience Logger",
-        "Replay Buffer",
-        "Continual Learning",
-      ],
-      coreTitle: "Core Idea",
-      coreText:
-        "The VLM is not fine-tuned. Only the Action Adapter between the VLM features and the robot controller is trained, updated, and improved from experience.",
-      sections: [
-        {
-          title: "Why continual learning?",
-          items: [
-            "The adapter may initially understand commands but choose inefficient or unsafe actions.",
-            "Safety Filter interventions are stored as learning signals.",
-            "The adapter gradually learns to avoid risky actions in similar states.",
-          ],
-        },
-        {
-          title: "Learning Types",
-          items: [
-            "Environment-adaptive continual learning: empty room, obstacles, narrow corridor, dynamic obstacles.",
-            "Task-adaptive continual learning: navigation, obstacle avoidance, stopping near objects, patrol, following people.",
-            "Robot-adaptive learning: TurtleBot3, other differential-drive robots, Ackermann vehicles, and robot arms.",
-          ],
-        },
-        {
-          title: "Recommended Training Flow",
-          items: [
-            "1. Behavior Cloning from Nav2 or a rule-based controller.",
-            "2. Safety Correction Learning using Safety Filter interventions.",
-            "3. Replay Buffer based Continual Learning.",
-            "4. Limited Offline RL or DAgger-style extension.",
-          ],
-        },
-        {
-          title: "Research Questions",
-          items: [
-            "RQ1. Can adapter-only continual learning improve robot control under a frozen VLM?",
-            "RQ2. Can Safety Filter intervention data reduce collision and risky action rates?",
-            "RQ3. Can a Replay Buffer balance new environment adaptation and old environment retention?",
-            "RQ4. How do vision, language, and robot state inputs affect continual learning performance?",
-          ],
-        },
-        {
-          title: "Evaluation Metrics",
-          items: [
-            "Success Rate, Collision Rate, Time to Goal, Path Efficiency.",
-            "Safety Intervention Rate, Adaptation Speed, Forgetting Rate.",
-            "Sample Efficiency, Online Improvement, Correction Reduction.",
-          ],
-        },
-        {
-          title: "Final Recommended Scope",
-          items: [
-            "Frozen VLM, trainable Action Adapter only.",
-            "ROS2 Gazebo and TurtleBot3 simulation.",
-            "Discrete action space: move_forward, turn_left, turn_right, stop, backward.",
-            "Safety Filter and Replay Buffer for continual learning evaluation.",
-          ],
-        },
-      ],
-    },
-
-    ko: {
-      eyebrow: "Robotic Intelligence Network",
-      title: "Project RIN",
-      subtitle:
-        "Frozen VLM, Action Adapter, Safety Filter, Replay Buffer 기반 Continual Learning을 결합한 이동로봇 지능 구조입니다.",
-      diagramTitle: "전체 구조",
-      diagram: [
-        "카메라 / 영상 / 자연어 명령 / 로봇 상태",
-        "Frozen VLM",
-        "Action Adapter",
-        "Safety Filter",
-        "ROS2 Controller / Nav2 / Gazebo",
-        "Experience Logger",
-        "Replay Buffer",
-        "Continual Learning",
-      ],
-      coreTitle: "핵심 아이디어",
-      coreText:
-        "Gemma4 또는 VLM 본체는 학습하지 않고 고정합니다. 학습하는 것은 VLM 특징과 로봇 제어기 사이의 Action Adapter입니다. 계산 비용을 줄이면서도 로봇 경험을 통해 제어 성능을 점진적으로 개선하는 구조입니다.",
-      sections: [
-        {
-          title: "지속 학습이 들어가면 좋은 점",
-          items: [
-            "처음에는 Adapter가 명령을 이해해도 움직임이 비효율적이거나 위험할 수 있습니다.",
-            "예를 들어 전방 장애물이 가까운데 move_forward를 선택하면 Safety Filter가 stop 또는 turn_left로 수정합니다.",
-            "이 수정 경험을 버리지 않고 학습 데이터로 저장하면, Adapter는 비슷한 상황에서 위험 행동을 덜 선택하게 됩니다.",
-            "즉 Safety Filter는 단순 보호 장치가 아니라 학습 교사가 됩니다.",
-          ],
-        },
-        {
-          title: "가능한 Continual Learning 유형",
-          items: [
-            "환경 적응형 지속 학습: 빈 방 → 장애물 많은 방 → 좁은 복도 → 동적 장애물 환경.",
-            "작업 적응형 지속 학습: 목표 지점 이동 → 장애물 회피 → 특정 물체 앞 정지 → 순찰 → 사람 따라가기.",
-            "로봇 적응형 지속 학습: TurtleBot3 → 다른 차동구동 로봇 → Ackermann steering 차량 → 로봇팔.",
-            "석사 연구 범위에서는 환경 적응형 지속 학습이 가장 현실적입니다.",
-          ],
-        },
-        {
-          title: "추천 학습 단계",
-          items: [
-            "1단계 Behavior Cloning: Nav2나 rule-based controller를 teacher로 사용합니다.",
-            "2단계 Safety Correction Learning: Safety Filter가 수정한 action을 학습 신호로 사용합니다.",
-            "3단계 Replay Buffer 기반 Continual Learning: 최근 데이터와 과거 데이터를 섞어 망각을 줄입니다.",
-            "4단계 DAgger 또는 제한적 Offline RL: 로봇이 직접 만든 이상 상황에 대해 teacher가 더 좋은 action을 제공합니다.",
-          ],
-        },
-        {
-          title: "Replay Buffer 구성 예시",
-          items: [
-            "최근 데이터 60%",
-            "과거 성공 데이터 20%",
-            "과거 실패 데이터 10%",
-            "Safety Filter 개입 데이터 10%",
-            "새 환경에 적응하면서도 이전 환경 성능을 보존하기 위한 핵심 장치입니다.",
-          ],
-        },
-        {
-          title: "연구 질문",
-          items: [
-            "RQ1. Frozen VLM과 Action Adapter 구조에서 Adapter만 지속 학습해도 이동로봇 제어 성능이 개선되는가?",
-            "RQ2. Safety Filter의 개입 데이터를 학습 신호로 사용하면 충돌률과 위험 행동 비율이 감소하는가?",
-            "RQ3. Replay Buffer를 사용하면 새로운 환경 적응과 기존 환경 성능 보존을 동시에 달성할 수 있는가?",
-            "RQ4. Vision + Language + Robot State 입력 조합은 지속 학습 성능에 어떤 영향을 주는가?",
-          ],
-        },
-        {
-          title: "평가 지표",
-          items: [
-            "기본 로봇 지표: Success Rate, Collision Rate, Time to Goal, Path Efficiency, Safety Intervention Rate.",
-            "지속 학습 지표: Adaptation Speed, Forgetting Rate, Sample Efficiency, Online Improvement, Correction Reduction.",
-            "특히 Safety Filter 개입률 감소는 Adapter가 점점 위험 행동을 덜 선택한다는 의미라서 중요한 지표입니다.",
-          ],
-        },
-        {
-          title: "실험 설계 예시",
-          items: [
-            "World A: 빈 공간",
-            "World B: 정적 장애물",
-            "World C: 좁은 복도",
-            "World D: 복합 장애물",
-            "World A에서 초기 학습 후 B, C, D에서 지속 학습하고 다시 A/B에서 성능을 평가합니다.",
-          ],
-        },
-        {
-          title: "비교군",
-          items: [
-            "Frozen VLM + No Learning Adapter",
-            "Frozen VLM + Offline Trained Adapter",
-            "Frozen VLM + Continual Learning Adapter",
-            "Frozen VLM + Continual Learning Adapter + Replay Buffer",
-            "Frozen VLM + Continual Learning Adapter + Safety Correction",
-            "Nav2 또는 Rule-based Controller",
-          ],
-        },
-        {
-          title: "추천 최종 구조",
-          items: [
-            "Frozen Gemma4 Vision → Feature Extractor → Action Adapter.",
-            "입력: VLM feature + LiDAR summary + pose + previous action.",
-            "출력: discrete action.",
-            "Safety Filter → ROS2 /cmd_vel → Gazebo TurtleBot3 → Experience Logger → Replay Buffer → Adapter Continual Update.",
-            "Action은 move_forward, turn_left, turn_right, stop, backward부터 시작합니다.",
-          ],
-        },
-        {
-          title: "석사 레벨의 적절한 범위",
-          items: [
-            "VLM 본체 학습 X.",
-            "Action Adapter만 학습 O.",
-            "ROS2 Gazebo 기반 실험.",
-            "TurtleBot3 이동로봇.",
-            "Discrete action space.",
-            "Safety Filter와 Replay Buffer.",
-            "환경 변화에 따른 continual learning 평가.",
-          ],
-        },
-      ],
-    },
-
-    ja: {
-      eyebrow: "Robotic Intelligence Network",
-      title: "Project RIN",
-      subtitle:
-        "Frozen VLM、Action Adapter、Safety Filter、Replay Bufferを用いた移動ロボット向けの継続学習アーキテクチャです。",
-      diagramTitle: "全体構造",
-      diagram: [
-        "カメラ / 映像 / 自然言語命令 / ロボット状態",
-        "Frozen VLM",
-        "Action Adapter",
-        "Safety Filter",
-        "ROS2 Controller / Nav2 / Gazebo",
-        "Experience Logger",
-        "Replay Buffer",
-        "Continual Learning",
-      ],
-      coreTitle: "核心アイデア",
-      coreText:
-        "VLM本体は学習せず固定します。学習対象はVLM特徴とロボット制御器の間にあるAction Adapterのみです。計算コストを抑えながら、経験データによって制御性能を継続的に改善します。",
-      sections: [
-        {
-          title: "継続学習の価値",
-          items: [
-            "初期段階ではAdapterが非効率または危険な行動を選ぶ可能性があります。",
-            "Safety Filterが危険行動を修正し、その修正データを学習信号として保存します。",
-            "Adapterは似た状況で危険な行動を選ばないように改善されます。",
-          ],
-        },
-        {
-          title: "学習タイプ",
-          items: [
-            "環境適応型: 空室、障害物環境、狭い廊下、動的障害物。",
-            "タスク適応型: ナビゲーション、障害物回避、停止、巡回、人追従。",
-            "ロボット適応型: TurtleBot3、差動駆動ロボット、Ackermann車両、ロボットアーム。",
-          ],
-        },
-        {
-          title: "研究質問",
-          items: [
-            "RQ1. Frozen VLM構造でAdapterのみを継続学習して制御性能は改善するか。",
-            "RQ2. Safety Filterの介入データは危険行動を減らすか。",
-            "RQ3. Replay Bufferは新環境への適応と過去環境の保持を両立できるか。",
-            "RQ4. Vision、Language、Robot Stateの入力構成は性能にどう影響するか。",
-          ],
-        },
-        {
-          title: "推奨範囲",
-          items: [
-            "VLM本体は固定。",
-            "Action Adapterのみ学習。",
-            "ROS2 GazeboとTurtleBot3を使用。",
-            "Discrete action spaceから開始。",
-            "Safety FilterとReplay Bufferで継続学習を評価。",
-          ],
-        },
-      ],
-    },
+  en: {
+    eyebrow: "Robotic Intelligence Network",
+    title: "Project RIN",
+    subtitle:
+      "Project RIN is a research project about helping a robot understand visual scenes and human commands, then turn that understanding into safe movement.",
+    diagramTitle: "How Project RIN Works",
+    diagram: [
+      "A camera, a language command, and robot sensor data are given as input.",
+      "A frozen vision-language model reads the scene and the command.",
+      "A small Action Adapter converts that understanding into robot actions.",
+      "A Safety Filter blocks or corrects dangerous actions.",
+      "The robot moves in ROS2, Nav2, or Gazebo.",
+      "The robot stores what happened during the attempt.",
+      "The Action Adapter learns from successful moves, failures, and safety corrections.",
+      "Over time, the robot becomes safer and more efficient without retraining the large AI model.",
+    ],
+    coreTitle: "Core Idea",
+    coreText:
+      "Instead of retraining a huge AI model every time the robot enters a new environment, Project RIN keeps the large vision-language model fixed and trains only a small module called the Action Adapter. This makes the system cheaper, safer, and more realistic for robotics research.",
+    sections: [
+      {
+        title: "What problem does this solve?",
+        items: [
+          "Large AI models can understand images and language, but they do not automatically know how to move a real robot.",
+          "Robots also need to avoid dangerous actions such as moving forward into an obstacle.",
+          "Project RIN studies how to connect AI understanding with robot control in a practical and safe way.",
+        ],
+      },
+      {
+        title: "Simple example",
+        items: [
+          "A user says: Go to the desk.",
+          "The camera sees the room, obstacles, and the approximate target direction.",
+          "The AI model understands the scene and the command.",
+          "The Action Adapter chooses a movement such as move forward, turn left, turn right, or stop.",
+          "If the chosen action is dangerous, the Safety Filter corrects it before the robot moves.",
+        ],
+      },
+      {
+        title: "Why keep the VLM frozen?",
+        items: [
+          "Training the whole vision-language model is expensive and difficult.",
+          "A frozen VLM can still provide useful scene and language features.",
+          "Training only the Action Adapter makes the research easier to control and much more realistic for a master’s-level robotics project.",
+        ],
+      },
+      {
+        title: "How does the robot improve?",
+        items: [
+          "When the robot makes a bad decision, the Safety Filter corrects it.",
+          "That correction is saved as training data.",
+          "The Action Adapter learns that similar situations should lead to safer actions.",
+          "This means the safety system is not only a guardrail, but also a teacher.",
+        ],
+      },
+      {
+        title: "Continual learning",
+        items: [
+          "The robot first learns in a simple empty room.",
+          "Then it moves to environments with obstacles, narrow corridors, and more complex layouts.",
+          "The Action Adapter keeps learning from new experience while trying not to forget older environments.",
+          "A Replay Buffer stores old and new experiences together to reduce forgetting.",
+        ],
+      },
+      {
+        title: "Research questions",
+        items: [
+          "Can a robot improve if only the Action Adapter is continuously updated?",
+          "Can safety correction data reduce dangerous actions over time?",
+          "Can a Replay Buffer help the robot adapt to new rooms without forgetting old ones?",
+          "Which inputs are most useful: vision, language, robot state, or previous action?",
+        ],
+      },
+      {
+        title: "Evaluation",
+        items: [
+          "Goal success rate: how often the robot reaches the target.",
+          "Collision rate: how often the robot hits obstacles.",
+          "Time to goal: how quickly the robot completes the task.",
+          "Path efficiency: how direct and efficient the movement is.",
+          "Safety intervention rate: how often the Safety Filter has to correct the robot.",
+          "A key sign of learning is that safety interventions decrease over time.",
+        ],
+      },
+      {
+        title: "Expected research scope",
+        items: [
+          "Simulation-first experiment using ROS2, Nav2, Gazebo, and TurtleBot3.",
+          "Discrete actions such as move_forward, turn_left, turn_right, stop, and backward.",
+          "Frozen VLM, trainable Action Adapter, Safety Filter, Experience Logger, and Replay Buffer.",
+          "The goal is not to build a perfect general robot, but to test whether adapter-only continual learning improves safe robot control.",
+        ],
+      },
+    ],
   },
+
+  ko: {
+    eyebrow: "Robotic Intelligence Network",
+    title: "Project RIN",
+    subtitle:
+      "Project RIN은 로봇이 카메라로 주변을 보고, 사람의 명령을 이해한 뒤, 그 이해를 안전한 움직임으로 바꾸는 방법을 연구하는 프로젝트입니다.",
+    diagramTitle: "Project RIN의 작동 흐름",
+    diagram: [
+      "카메라, 자연어 명령, 로봇 센서 정보가 입력됩니다.",
+      "고정된 Vision-Language Model이 장면과 명령을 이해합니다.",
+      "작은 Action Adapter가 이해된 정보를 로봇 행동으로 변환합니다.",
+      "Safety Filter가 위험한 행동을 차단하거나 수정합니다.",
+      "로봇은 ROS2, Nav2, Gazebo 환경에서 움직입니다.",
+      "실행 결과, 실패, 충돌 위험, 안전 필터 개입 여부를 저장합니다.",
+      "Action Adapter는 성공 경험과 실패 경험, 안전 보정 데이터를 통해 학습합니다.",
+      "큰 AI 모델을 다시 학습하지 않고도 로봇의 행동이 점점 안전하고 효율적으로 변합니다.",
+    ],
+    coreTitle: "핵심 아이디어",
+    coreText:
+      "Project RIN의 핵심은 거대한 AI 모델 전체를 다시 학습시키지 않는 것입니다. VLM은 고정해두고, 그 사이에 있는 작은 Action Adapter만 학습합니다. 이렇게 하면 계산 비용이 줄고, 실험 통제가 쉬워지며, 로봇 연구 주제로도 훨씬 현실적인 구조가 됩니다.",
+    sections: [
+      {
+        title: "이 프로젝트가 해결하려는 문제",
+        items: [
+          "요즘 AI 모델은 이미지와 언어를 잘 이해하지만, 그것만으로 로봇이 안전하게 움직일 수 있는 것은 아닙니다.",
+          "예를 들어 AI가 '앞으로 가라'고 판단해도, 로봇 앞에 장애물이 있으면 실제로는 멈추거나 돌아가야 합니다.",
+          "Project RIN은 AI의 이해 능력과 로봇 제어 사이를 안전하게 연결하는 방법을 연구합니다.",
+        ],
+      },
+      {
+        title: "간단한 예시",
+        items: [
+          "사람이 로봇에게 '책상 쪽으로 가줘'라고 말합니다.",
+          "카메라는 방 구조와 장애물, 목표 방향을 봅니다.",
+          "VLM은 장면과 명령을 이해합니다.",
+          "Action Adapter는 move_forward, turn_left, turn_right, stop 같은 행동 중 하나를 고릅니다.",
+          "만약 그 행동이 위험하면 Safety Filter가 실행 전에 수정합니다.",
+        ],
+      },
+      {
+        title: "왜 VLM을 고정하는가?",
+        items: [
+          "거대한 VLM 전체를 학습시키는 것은 비용이 크고 실험 난이도도 높습니다.",
+          "하지만 고정된 VLM도 장면과 언어에 대한 유용한 특징을 뽑아낼 수 있습니다.",
+          "따라서 VLM은 고정하고, 로봇 제어에 필요한 작은 Action Adapter만 학습시키는 것이 현실적입니다.",
+        ],
+      },
+      {
+        title: "로봇은 어떻게 개선되는가?",
+        items: [
+          "처음에는 Adapter가 위험하거나 비효율적인 행동을 선택할 수 있습니다.",
+          "예를 들어 전방 장애물이 가까운데 move_forward를 선택할 수 있습니다.",
+          "이때 Safety Filter가 stop 또는 turn_left로 수정합니다.",
+          "이 수정 경험을 저장하면, Adapter는 다음에 비슷한 상황에서 더 안전한 행동을 고르게 됩니다.",
+          "즉 Safety Filter는 단순한 보호 장치가 아니라 학습을 도와주는 교사 역할도 합니다.",
+        ],
+      },
+      {
+        title: "지속 학습 구조",
+        items: [
+          "로봇은 처음에는 빈 방 같은 쉬운 환경에서 시작합니다.",
+          "이후 장애물이 많은 방, 좁은 복도, 복합 장애물 환경으로 이동합니다.",
+          "새 환경에서 얻은 경험을 통해 Action Adapter를 조금씩 업데이트합니다.",
+          "이때 과거 환경을 잊지 않도록 Replay Buffer에 과거 성공/실패 경험도 함께 저장합니다.",
+        ],
+      },
+      {
+        title: "연구 질문",
+        items: [
+          "VLM을 고정하고 Action Adapter만 지속 학습해도 로봇 제어 성능이 좋아지는가?",
+          "Safety Filter가 수정한 데이터를 학습에 사용하면 위험 행동이 줄어드는가?",
+          "Replay Buffer를 사용하면 새 환경에 적응하면서도 이전 환경 성능을 유지할 수 있는가?",
+          "카메라 정보, 언어 명령, 로봇 상태, 이전 행동 중 어떤 입력 조합이 가장 효과적인가?",
+        ],
+      },
+      {
+        title: "평가 방법",
+        items: [
+          "목표 도달률: 로봇이 목표 지점에 얼마나 잘 도착하는지 봅니다.",
+          "충돌률: 장애물과 충돌하는 비율을 측정합니다.",
+          "목표 도달 시간: 얼마나 빠르게 목표에 도착하는지 측정합니다.",
+          "경로 효율: 돌아가지 않고 효율적으로 이동했는지 봅니다.",
+          "Safety Filter 개입률: 안전 필터가 얼마나 자주 로봇 행동을 수정했는지 측정합니다.",
+          "학습이 잘 되었다면 시간이 지날수록 Safety Filter 개입률이 줄어들어야 합니다.",
+        ],
+      },
+      {
+        title: "예상 실험 범위",
+        items: [
+          "ROS2, Nav2, Gazebo, TurtleBot3 기반의 시뮬레이션 실험을 우선합니다.",
+          "행동은 처음에는 move_forward, turn_left, turn_right, stop, backward처럼 단순한 discrete action으로 제한합니다.",
+          "구성 요소는 Frozen VLM, Action Adapter, Safety Filter, Experience Logger, Replay Buffer입니다.",
+          "목표는 완벽한 범용 로봇을 만드는 것이 아니라, Adapter만 지속 학습해도 안전한 로봇 제어 성능이 개선되는지 검증하는 것입니다.",
+        ],
+      },
+    ],
+  },
+
+  ja: {
+    eyebrow: "Robotic Intelligence Network",
+    title: "Project RIN",
+    subtitle:
+      "Project RINは、ロボットが周囲を見て、人の命令を理解し、その理解を安全な動きに変えるための研究プロジェクトです。",
+    diagramTitle: "Project RINの流れ",
+    diagram: [
+      "カメラ、自然言語命令、ロボットセンサ情報を入力します。",
+      "固定されたVision-Language Modelがシーンと命令を理解します。",
+      "小さなAction Adapterがその理解をロボット行動に変換します。",
+      "Safety Filterが危険な行動を止める、または修正します。",
+      "ロボットはROS2、Nav2、Gazebo上で動きます。",
+      "成功、失敗、危険回避、Safety Filterの介入を記録します。",
+      "Action Adapterは経験データから少しずつ学習します。",
+      "大きなAIモデルを再学習せずに、ロボットの動きがより安全で効率的になります。",
+    ],
+    coreTitle: "核心アイデア",
+    coreText:
+      "Project RINでは、大規模なVision-Language Model全体を再学習しません。VLMは固定し、その出力とロボット制御の間にある小さなAction Adapterだけを学習します。これにより、計算コストを抑えつつ、現実的なロボット研究として扱いやすくなります。",
+    sections: [
+      {
+        title: "解決したい問題",
+        items: [
+          "AIモデルは画像と言語を理解できますが、それだけでロボットが安全に動けるわけではありません。",
+          "前に障害物がある場合、単に前進するのではなく停止や回避が必要です。",
+          "Project RINはAIの理解能力とロボット制御を安全につなぐ方法を研究します。",
+        ],
+      },
+      {
+        title: "簡単な例",
+        items: [
+          "人がロボットに「机の方へ行って」と命令します。",
+          "カメラが部屋、障害物、目標方向を見ます。",
+          "VLMがシーンと命令を理解します。",
+          "Action Adapterがmove_forward、turn_left、turn_right、stopなどの行動を選びます。",
+          "危険な行動はSafety Filterが実行前に修正します。",
+        ],
+      },
+      {
+        title: "VLMを固定する理由",
+        items: [
+          "大規模VLM全体の学習は高コストで、実験も難しくなります。",
+          "固定されたVLMでも、シーンと言語に関する有用な特徴を取り出せます。",
+          "そのため、小さなAction Adapterだけを学習する方が現実的です。",
+        ],
+      },
+      {
+        title: "ロボットはどう改善されるか",
+        items: [
+          "初期のAdapterは危険または非効率な行動を選ぶかもしれません。",
+          "Safety Filterがその行動を修正し、修正データを保存します。",
+          "Adapterは似た状況でより安全な行動を選ぶようになります。",
+          "つまりSafety Filterは保護装置であると同時に学習の教師にもなります。",
+        ],
+      },
+      {
+        title: "研究質問",
+        items: [
+          "VLMを固定し、Action Adapterだけを継続学習して制御性能は改善するか。",
+          "Safety Filterの修正データは危険行動を減らすか。",
+          "Replay Bufferは新しい環境への適応と過去環境の保持を両立できるか。",
+          "視覚、言語、ロボット状態、前回行動のどの入力が有効か。",
+        ],
+      },
+      {
+        title: "実験範囲",
+        items: [
+          "ROS2、Nav2、Gazebo、TurtleBot3を用いたシミュレーションを中心にします。",
+          "行動はmove_forward、turn_left、turn_right、stop、backwardなどの離散行動から始めます。",
+          "目的は汎用ロボットを完成させることではなく、Adapterのみの継続学習が安全な制御を改善するかを検証することです。",
+        ],
+      },
+    ],
+  },
+},
 
   profile: {
     en: {
