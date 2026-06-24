@@ -1122,6 +1122,69 @@ body::after,
 }
 
 
+.theme-fade-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.62s ease;
+  will-change: opacity;
+}
+
+.theme-fade-overlay.light-to-dark {
+  background:
+    radial-gradient(circle at 28% 18%, rgba(191, 219, 254, 0.62), transparent 28rem),
+    linear-gradient(180deg, rgba(219, 234, 254, 0.96), rgba(240, 249, 255, 0.96));
+}
+
+.theme-fade-overlay.dark-to-light {
+  background:
+    radial-gradient(circle at 24% 18%, rgba(96, 165, 250, 0.32), transparent 28rem),
+    radial-gradient(circle at 78% 8%, rgba(167, 139, 250, 0.26), transparent 30rem),
+    linear-gradient(180deg, rgba(5, 8, 22, 0.98), rgba(7, 17, 31, 0.98));
+}
+
+.theme-fade-overlay.visible {
+  opacity: 1;
+}
+
+body,
+.site-header,
+.glass-card,
+.project-card,
+.content-card,
+.mini-card,
+.profile-card-main,
+.rin-hero-card,
+.paper-figure,
+.hobby-section,
+.composition-card,
+.anime-entry,
+.top-music-player,
+.nav-link,
+.lang-button,
+.theme-toggle,
+.music-control,
+.music-next {
+  transition:
+    background-color 0.65s ease,
+    color 0.65s ease,
+    border-color 0.65s ease,
+    box-shadow 0.65s ease;
+}
+
+body::before,
+body::after,
+.rain-layer,
+.rain-mist,
+.cursor-glow {
+  transition:
+    opacity 0.75s ease,
+    background 0.75s ease;
+}
+
+
 @media (max-width: 1120px) {
   .nav-container {
     grid-template-columns: 1fr auto auto;
