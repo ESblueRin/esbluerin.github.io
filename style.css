@@ -101,6 +101,10 @@ html:lang(en) body {
   font-family: "LINE Seed KR", Arial, "Noto Sans KR", sans-serif;
 }
 
+html:lang(ja) body {
+  font-family: "LINE Seed JP", "LINE Seed KR", Arial, sans-serif;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -1086,6 +1090,20 @@ body[data-theme="light"] .skill-bar {
 .anime-entry {
   padding: 20px;
 }
+
+.anime-title-sub {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.anime-title-sub strong {
+  display: inline-flex;
+  min-width: 28px;
+  color: var(--accent);
+  font-weight: 900;
+}
+
 
 .composition-grid {
   display: grid;
