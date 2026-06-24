@@ -780,7 +780,7 @@ function createRainLayer() {
   const rainMist = document.createElement("div");
   rainMist.className = "rain-mist";
 
-  const rainCount = 210;
+  const rainCount = 300;
 
   for (let i = 0; i < rainCount; i += 1) {
     const streak = document.createElement("span");
