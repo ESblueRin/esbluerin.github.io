@@ -85,12 +85,13 @@ body[data-theme="light"] .site-header {
 }
 
 .nav-container {
-  max-width: 1180px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 18px 24px;
-  display: flex;
+  padding: 14px 24px;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
 }
 
 .logo {
@@ -98,12 +99,11 @@ body[data-theme="light"] .site-header {
   color: var(--text);
   letter-spacing: -0.04em;
   font-size: 20px;
-  margin-right: auto;
 }
 
 .nav-menu {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -123,21 +123,102 @@ body[data-theme="light"] .site-header {
   text-decoration: none;
 }
 
-.theme-toggle {
-  width: 40px;
-  height: 40px;
+.top-music-player {
+  justify-self: center;
+  width: min(420px, 100%);
+  display: grid;
+  grid-template-columns: 38px minmax(90px, 1fr) minmax(90px, 150px) 38px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
   border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.music-control,
+.music-next,
+.theme-toggle {
+  border: 1px solid var(--line);
   background: var(--card);
   color: var(--text);
   cursor: pointer;
-  font-size: 18px;
   transition: 0.25s ease;
 }
 
+.music-control,
+.music-next {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.music-control.playing {
+  color: #06111f;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.music-control:hover,
+.music-next:hover,
 .theme-toggle:hover {
   transform: translateY(-2px);
   background: var(--card-strong);
+}
+
+.music-meta {
+  min-width: 0;
+  line-height: 1.1;
+}
+
+.music-label {
+  display: block;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.music-title {
+  display: block;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.music-seek {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.app-root {
+  min-height: calc(100vh - 160px);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.app-root.page-leaving {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.app-root.page-entering {
+  animation: appEnter 0.35s ease;
 }
 
 .container {
@@ -246,7 +327,6 @@ body[data-theme="light"] .site-header {
   border-radius: 32px;
 }
 
-/* 대문 프로필 이미지: Apple-style rounded square */
 .profile-orbit {
   position: absolute;
   width: 290px;
@@ -406,7 +486,6 @@ p {
   padding: 28px;
 }
 
-/* 프로필 페이지 이미지: Apple-style rounded square */
 .profile-photo-large {
   width: 210px;
   height: 250px;
@@ -601,6 +680,10 @@ body[data-theme="light"] .skill-bar {
   transition: 0.25s ease;
 }
 
+.hobby-extra {
+  margin-top: 24px;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 30px 24px;
@@ -641,6 +724,40 @@ body[data-theme="light"] .skill-bar {
   }
 }
 
+@keyframes appEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1040px) {
+  .nav-container {
+    grid-template-columns: 1fr auto;
+  }
+
+  .nav-menu {
+    order: 3;
+    grid-column: 1 / -1;
+  }
+
+  .top-music-player {
+    order: 2;
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .theme-toggle {
+    order: 1;
+  }
+}
+
 @media (max-width: 920px) {
   .hero-grid,
   .profile-layout {
@@ -662,14 +779,7 @@ body[data-theme="light"] .skill-bar {
 
 @media (max-width: 640px) {
   .nav-container {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .theme-toggle {
-    position: absolute;
-    right: 24px;
-    top: 14px;
+    padding: 14px 18px;
   }
 
   .container {
@@ -712,5 +822,13 @@ body[data-theme="light"] .skill-bar {
   .card-three {
     left: 26px;
     bottom: 38px;
+  }
+
+  .top-music-player {
+    grid-template-columns: 34px minmax(90px, 1fr) 34px;
+  }
+
+  .music-seek {
+    grid-column: 1 / -1;
   }
 }
