@@ -7,50 +7,86 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="cursor-glow"></div>
+
   <header class="site-header">
     <div class="nav-container">
-      <a class="logo" href="index.html">Lee Juho</a>
+      <a class="logo" href="index.html">ESblueRin</a>
+
       <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="profile.html">Profile</a>
-        <a href="hobby.html">Hobby</a>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="profile.html">Profile</a>
+        <a class="nav-link" href="hobby.html">Hobby</a>
       </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <p class="eyebrow">ESblueRin.github.io</p>
-      <h1>Lee Juho<br><span>Mechatronics Engineering Student</span></h1>
-      <p class="hero-text">
-        I am interested in WiFi CSI, AI engineering, robotics, control systems,
-        and practical application development.
-      </p>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Mechatronics · AI · Robotics</p>
+          <h1 class="headline">
+            Lee Juho<br />
+            <span>building ideas between software and machines.</span>
+          </h1>
+          <p class="hero-text">
+            I am interested in WiFi CSI, AI engineering, robotics, control systems,
+            and practical application development.
+          </p>
 
-      <div class="hero-buttons">
-        <a class="button primary" href="profile.html">View Profile</a>
-        <a class="button secondary" href="projects.html">View Projects</a>
+          <div class="hero-buttons">
+            <a class="button primary" href="profile.html">View Profile</a>
+            <a class="button secondary" href="projects.html">View Projects</a>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal">
+          <div class="profile-orbit">
+            <img src="profile.jpg" alt="Lee Juho profile photo" />
+          </div>
+
+          <div class="floating-card card-one">
+            <strong>WiFi CSI</strong>
+            <span>Human Activity Understanding</span>
+          </div>
+
+          <div class="floating-card card-two">
+            <strong>PyTorch</strong>
+            <span>AI Engineering</span>
+          </div>
+
+          <div class="floating-card card-three">
+            <strong>Flutter</strong>
+            <span>Application Development</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="grid-section">
-      <article class="card">
+    <section class="container quick-grid">
+      <article class="glass-card reveal">
+        <span class="card-number">01</span>
         <h2>Projects</h2>
         <p>Research, application development, AI engineering, and startup projects.</p>
-        <a href="projects.html">Go to Projects →</a>
+        <a href="projects.html">Explore →</a>
       </article>
 
-      <article class="card">
+      <article class="glass-card reveal">
+        <span class="card-number">02</span>
         <h2>Profile</h2>
         <p>Education, work experience, skills, patents, and achievements.</p>
-        <a href="profile.html">Go to Profile →</a>
+        <a href="profile.html">Read more →</a>
       </article>
 
-      <article class="card">
+      <article class="glass-card reveal">
+        <span class="card-number">03</span>
         <h2>Hobby</h2>
-        <p>Personal notes, casual writing, interests, and side activities.</p>
-        <a href="hobby.html">Go to Hobby →</a>
+        <p>Personal notes, casual writing, hobbies, and creative interests.</p>
+        <a href="hobby.html">Open page →</a>
       </article>
     </section>
   </main>
@@ -58,5 +94,7 @@
   <footer class="site-footer">
     <p>© 2026 Lee Juho. Built with GitHub Pages.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
