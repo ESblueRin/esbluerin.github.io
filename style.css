@@ -246,24 +246,27 @@ body[data-theme="light"] .site-header {
   border-radius: 32px;
 }
 
+/* 대문 프로필 이미지: Apple-style rounded square */
 .profile-orbit {
   position: absolute;
-  width: 270px;
-  height: 270px;
+  width: 290px;
+  height: 340px;
   left: 50%;
   top: 48%;
   transform: translate(-50%, -50%);
-  border-radius: 50%;
+  border-radius: 42px;
   padding: 10px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   animation: float 5s ease-in-out infinite;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
 }
 
 .profile-orbit img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  object-position: center;
+  border-radius: 34px;
   border: 8px solid rgba(255, 255, 255, 0.88);
 }
 
@@ -403,14 +406,16 @@ p {
   padding: 28px;
 }
 
+/* 프로필 페이지 이미지: Apple-style rounded square */
 .profile-photo-large {
-  width: 190px;
-  height: 190px;
+  width: 210px;
+  height: 250px;
   object-fit: cover;
   object-position: center;
-  border-radius: 50%;
+  border-radius: 34px;
   border: 7px solid rgba(255, 255, 255, 0.8);
   margin-bottom: 18px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
 }
 
 .profile-card-main h1 {
@@ -459,6 +464,10 @@ p {
 
 .contact-gap {
   margin-top: 18px;
+}
+
+.small-note {
+  font-size: 13px;
 }
 
 .skill-item {
@@ -681,8 +690,8 @@ body[data-theme="light"] .skill-bar {
   }
 
   .profile-orbit {
-    width: 220px;
-    height: 220px;
+    width: 230px;
+    height: 280px;
   }
 
   .floating-card {
