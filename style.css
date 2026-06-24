@@ -96,6 +96,11 @@ body {
     linear-gradient(135deg, var(--bg), var(--bg-2));
 }
 
+html:lang(ko) body,
+html:lang(en) body {
+  font-family: "LINE Seed KR", Arial, "Noto Sans KR", sans-serif;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -350,7 +355,7 @@ body[data-theme="light"] .site-header {
 .lang-button {
   color: var(--muted);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
   padding: 9px 12px;
   border-radius: 999px;
   border: 0;
