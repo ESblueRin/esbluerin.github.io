@@ -727,6 +727,64 @@ function bindCursorGlow() {
   });
 }
 
+function createStarField() {
+  const oldStarField = document.querySelector(".star-field");
+  if (oldStarField) oldStarField.remove();
+
+  const starField = document.createElement("div");
+  starField.className = "star-field";
+
+  const starCount = 120;
+
+  for (let i = 0; i < starCount; i += 1) {
+    const star = document.createElement("span");
+
+    const sizeRandom = Math.random();
+    const sizeClass =
+      sizeRandom > 0.92 ? "large" : sizeRandom > 0.68 ? "medium" : "small";
+
+    const softClass = Math.random() > 0.72 ? "soft" : "";
+
+    star.className = `star ${sizeClass} ${softClass}`.trim();
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.setProperty("--twinkle-duration", `${2.4 + Math.random() * 4.8}s`);
+    star.style.setProperty("--twinkle-delay", `${Math.random() * 5}s`);
+
+    starField.appendChild(star);
+  }
+
+  document.body.prepend(starField);
+}
+
+function createRainLayer() {
+  const oldRainLayer = document.querySelector(".rain-layer");
+  if (oldRainLayer) oldRainLayer.remove();
+
+  const rainLayer = document.createElement("div");
+  rainLayer.className = "rain-layer";
+
+  const rainCount = 54;
+
+  for (let i = 0; i < rainCount; i += 1) {
+    const streak = document.createElement("span");
+
+    streak.className = "rain-streak";
+    streak.style.left = `${Math.random() * 120}%`;
+    streak.style.top = `${Math.random() * 100}%`;
+    streak.style.height = `${22 + Math.random() * 42}px`;
+    streak.style.opacity = `${0.22 + Math.random() * 0.38}`;
+    streak.style.setProperty("--rain-duration", `${5.5 + Math.random() * 5}s`);
+    streak.style.setProperty("--rain-delay", `${Math.random() * 8}s`);
+
+    rainLayer.appendChild(streak);
+  }
+
+  document.body.prepend(rainLayer);
+}
+
+
+
 function init() {
   document.body.dataset.theme = state.theme;
   document.documentElement.lang = state.lang;
@@ -736,6 +794,8 @@ function init() {
   bindHeaderEvents();
   bindMusic();
   bindCursorGlow();
+  createStarField();
+  createRainLayer();
   detectBgmTracks();
   render();
 
