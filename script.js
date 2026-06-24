@@ -768,7 +768,7 @@ function createStarField() {
 }
 
 function createRainLayer() {
- const oldRainLayer = document.querySelector(".rain-layer");
+  const oldRainLayer = document.querySelector(".rain-layer");
   const oldRainMist = document.querySelector(".rain-mist");
 
   if (oldRainLayer) oldRainLayer.remove();
@@ -780,26 +780,49 @@ function createRainLayer() {
   const rainMist = document.createElement("div");
   rainMist.className = "rain-mist";
 
-  const rainCount = 120;
+  const rainCount = 210;
 
   for (let i = 0; i < rainCount; i += 1) {
     const streak = document.createElement("span");
 
     const depthRandom = Math.random();
     const depthClass =
-      depthRandom > 0.82 ? "near" : depthRandom < 0.32 ? "far" : "mid";
+      depthRandom > 0.78 ? "near" : depthRandom < 0.28 ? "far" : "mid";
 
-    const height = 28 + Math.random() * 58;
-    const width = Math.random() > 0.78 ? 1.4 : 1;
-    const opacity = 0.16 + Math.random() * 0.34;
-    const duration = 4.2 + Math.random() * 5.8;
+    const height = 44 + Math.random() * 86;
+
+    const width =
+      depthClass === "near"
+        ? 2.2 + Math.random() * 1.8
+        : depthClass === "mid"
+          ? 1.6 + Math.random() * 1.2
+          : 1.1 + Math.random() * 0.8;
+
+    const opacity =
+      depthClass === "near"
+        ? 0.38 + Math.random() * 0.34
+        : depthClass === "mid"
+          ? 0.28 + Math.random() * 0.28
+          : 0.18 + Math.random() * 0.22;
+
+    const duration =
+      depthClass === "near"
+        ? 3.4 + Math.random() * 3.0
+        : depthClass === "mid"
+          ? 4.4 + Math.random() * 4.0
+          : 5.6 + Math.random() * 5.0;
+
     const delay = -Math.random() * duration;
-    const angle = 10 + Math.random() * 10;
-    const drift = -8 - Math.random() * 18;
-    const blur = Math.random() * 0.9;
+    const angle = 10 + Math.random() * 8;
+    const drift = -10 - Math.random() * 22;
+
+    const blur =
+      depthClass === "near"
+        ? Math.random() * 0.35
+        : 0.25 + Math.random() * 0.85;
 
     streak.className = `rain-streak ${depthClass}`;
-    streak.style.left = `${Math.random() * 115}%`;
+    streak.style.left = `${Math.random() * 118}%`;
     streak.style.setProperty("--rain-height", `${height}px`);
     streak.style.setProperty("--rain-width", `${width}px`);
     streak.style.setProperty("--rain-opacity", `${opacity}`);
