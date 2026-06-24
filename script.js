@@ -805,10 +805,10 @@ const width =
 
 const opacity =
   depthClass === "near"
-    ? 0.42 + Math.random() * 0.28
+    ? 0.62 + Math.random() * 0.28
     : depthClass === "mid"
-      ? 0.30 + Math.random() * 0.24
-      : 0.20 + Math.random() * 0.18;
+      ? 0.46 + Math.random() * 0.26
+      : 0.30 + Math.random() * 0.20;
 
 const duration =
   depthClass === "near"
