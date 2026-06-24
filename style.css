@@ -1039,6 +1039,45 @@ body[data-theme="light"] .skill-bar {
   font-weight: 900;
 }
 
+.anime-log-hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition:
+    max-height 0.55s ease,
+    opacity 0.45s ease,
+    margin-top 0.45s ease;
+}
+
+.anime-log-hidden.open {
+  max-height: 4000px;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+.anime-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 18px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  font-family: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.anime-toggle-button:hover {
+  transform: translateY(-2px);
+  background: var(--card-strong);
+}
+
 .anime-log {
   display: grid;
   gap: 14px;
