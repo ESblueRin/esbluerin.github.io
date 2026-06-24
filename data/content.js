@@ -801,10 +801,10 @@ window.SITE_CONTENT = {
       ],
       composition: [
         {
-          title: "Composition Project 01",
-          text: "A place for screenshots, demo audio, and notes about music production.",
+          title: "I wonder(arrangement)",
+          text: "A simple arrangement with FL Studio",
           image: "assets/composition-01.png",
-          audio: "assets/composition-demo-01.mp3",
+          audio: "assets/composition-01.mp3",
         },
       ],
     },
@@ -871,10 +871,10 @@ window.SITE_CONTENT = {
       ],
       composition: [
         {
-          title: "Composition Project 01",
-          text: "작곡 중인 프로젝트의 스크린샷, 샘플 오디오, 메모를 정리하는 공간입니다.",
+          title: "I wonder(arrangement)",
+          text:  "FL Studio를 통한 간단한 편곡을 진행합니다.",
           image: "assets/composition-01.png",
-          audio: "assets/composition-demo-01.mp3",
+          audio: "assets/composition-01.mp3",
         },
       ],
     },
@@ -915,10 +915,10 @@ window.SITE_CONTENT = {
       ],
       composition: [
         {
-          title: "Composition Project 01",
-          text: "作曲プロジェクトのスクリーンショット、サンプル音源、メモを整理する場所です。",
+         title: "I wonder(arrangement)",
+          text: "FL Studioを使って簡単な編曲を行います。",
           image: "assets/composition-01.png",
-          audio: "assets/composition-demo-01.mp3",
+          audio: "assets/composition-01.mp3"、
         },
       ],
     },
