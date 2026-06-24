@@ -85,7 +85,7 @@ html {
 body {
   position: relative;
   margin: 0;
-  font-family: Inter, Arial, "Noto Sans KR", sans-serif;
+   font-family: "LINE Seed KR", Arial, "Noto Sans KR", sans-serif;
   color: var(--text);
   line-height: 1.65;
   min-height: 100vh;
