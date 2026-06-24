@@ -789,7 +789,7 @@ function createRainLayer() {
     const depthClass =
       depthRandom > 0.78 ? "near" : depthRandom < 0.28 ? "far" : "mid";
 
-    const height = 44 + Math.random() * 86;
+    const height = 34 + Math.random() * 58;
 
     const width =
       depthClass === "near"
@@ -813,7 +813,7 @@ function createRainLayer() {
           : 5.6 + Math.random() * 1.6;
 
     const delay = -Math.random() * duration;
-    const angle = 10 + Math.random() * 8;
+    const angle = 7 + Math.random() * 6;
     const drift = -10 - Math.random() * 22;
 
     const blur =
