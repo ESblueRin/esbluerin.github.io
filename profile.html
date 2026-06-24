@@ -3,233 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lee Juho | Profile</title>
+  <title>Lee Juho | Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="cursor-glow"></div>
+
   <header class="site-header">
     <div class="nav-container">
-      <a class="logo" href="index.html">Lee Juho</a>
+      <a class="logo" href="index.html">ESblueRin</a>
+
       <nav class="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="profile.html" class="active">Profile</a>
-        <a href="hobby.html">Hobby</a>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="profile.html">Profile</a>
+        <a class="nav-link" href="hobby.html">Hobby</a>
       </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="profile-header">
-      <img src="profile.jpg" alt="Lee Juho profile photo" class="profile-photo" />
+  <main>
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Mechatronics · AI · Robotics</p>
+          <h1 class="headline">
+            Lee Juho<br />
+            <span>building ideas between software and machines.</span>
+          </h1>
+          <p class="hero-text">
+            I am interested in WiFi CSI, AI engineering, robotics, control systems,
+            and practical application development.
+          </p>
 
-      <div>
-        <p class="eyebrow">Personal Profile</p>
-        <h1>Lee Juho <span class="kor-name">(이주호)</span></h1>
-        <p class="profile-subtitle">
-          Mechatronics Engineering Student · Application Developer · AI Engineering Learner
-        </p>
+          <div class="hero-buttons">
+            <a class="button primary" href="profile.html">View Profile</a>
+            <a class="button secondary" href="projects.html">View Projects</a>
+          </div>
+        </div>
 
-        <div class="tag-list">
-          <span>Director at Mori</span>
-          <span>INU Start-up Team</span>
-          <span>Flutter</span>
-          <span>PyTorch</span>
-          <span>WiFi CSI</span>
+        <div class="hero-panel reveal">
+          <div class="profile-orbit">
+            <img src="profile.jpg" alt="Lee Juho profile photo" />
+          </div>
+
+          <div class="floating-card card-one">
+            <strong>WiFi CSI</strong>
+            <span>Human Activity Understanding</span>
+          </div>
+
+          <div class="floating-card card-two">
+            <strong>PyTorch</strong>
+            <span>AI Engineering</span>
+          </div>
+
+          <div class="floating-card card-three">
+            <strong>Flutter</strong>
+            <span>Application Development</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section">
-      <h2>Current Positions</h2>
+    <section class="container quick-grid">
+      <article class="glass-card reveal">
+        <span class="card-number">01</span>
+        <h2>Projects</h2>
+        <p>Research, application development, AI engineering, and startup projects.</p>
+        <a href="projects.html">Explore →</a>
+      </article>
 
-      <div class="timeline-item">
-        <h3>Director at Mori <span>INU Start-up Team</span></h3>
-        <p class="date">Feb. 2023 ~ Present</p>
-      </div>
+      <article class="glass-card reveal">
+        <span class="card-number">02</span>
+        <h2>Profile</h2>
+        <p>Education, work experience, skills, patents, and achievements.</p>
+        <a href="profile.html">Read more →</a>
+      </article>
 
-      <div class="timeline-item">
-        <h3>PINCOM’s President</h3>
-        <p class="date">Aug. 2023 ~ Dec. 2024</p>
-        <p>
-          Operation and advisory of INU central programming academic organization.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Contact</h2>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Office</h3>
-          <p>12 Gaetbeol-ro, Yeonsu-gu, Incheon</p>
-          <p>mori@mori-corp.io</p>
-          <p>chzhdndbaoq@inu.ac.kr</p>
-        </div>
-
-        <div class="contact-card">
-          <h3>Personal</h3>
-          <p>joholee123@gmail.com</p>
-          <p>chzhdndbaoq@naver.com</p>
-          <p class="small-note">Phone number and personal address are available upon request.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Skills</h2>
-
-      <div class="skill-item">
-        <div class="skill-title">
-          <span>Flutter Application Development</span>
-          <span>2 / 5</span>
-        </div>
-        <div class="skill-bar"><div style="width: 40%;"></div></div>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-title">
-          <span>PyTorch AI Engineering Programming</span>
-          <span>4 / 5</span>
-        </div>
-        <div class="skill-bar"><div style="width: 80%;"></div></div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Languages</h2>
-
-      <div class="skill-item">
-        <div class="skill-title">
-          <span>Korean <em>Native language</em></span>
-          <span>5 / 5</span>
-        </div>
-        <div class="skill-bar"><div style="width: 100%;"></div></div>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-title">
-          <span>English <em>Simple conversation</em></span>
-          <span>3 / 5</span>
-        </div>
-        <div class="skill-bar"><div style="width: 60%;"></div></div>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-title">
-          <span>Japanese <em>JLPT N2</em></span>
-          <span>3 / 5</span>
-        </div>
-        <div class="skill-bar"><div style="width: 60%;"></div></div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Side Hustles</h2>
-
-      <ul class="simple-list">
-        <li><del>LumaFusion Video Editing</del></li>
-        <li><del>YouTuber — Channel @Morichanneru</del></li>
-      </ul>
-    </section>
-
-    <section class="content-section">
-      <h2>Profile</h2>
-
-      <ul class="simple-list">
-        <li>Application Engineering, mainly front-end development, for 4 years.</li>
-        <li>KLAYMAKERS 23 Hackathon participation.</li>
-        <li>
-          Grand Prize, Incheon National University Engineering Education Innovation Center:
-          Motion Capture System Bio Healthcare Application & Rehabilitation Robotics Connection Competition.
-        </li>
-        <li>
-          Completed mentoring program at Seoul National University College of Education
-          Affiliated Gifted Education Center.
-        </li>
-        <li>
-          Appointed as the representative citizen diplomat for Siheung City, Japan program.
-          Oct. 2024 ~ Jan. 2025.
-        </li>
-      </ul>
-    </section>
-
-    <section class="content-section">
-      <h2>Education</h2>
-
-      <div class="timeline-item">
-        <h3>Incheon National University</h3>
-        <p>Department of Mechatronics Engineering</p>
-        <p class="date">Entrance in 2020 · Senior</p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Work Experience</h2>
-
-      <div class="timeline-item">
-        <h3>Application Development <span>Start-up Mori</span></h3>
-        <p class="date">July 2021 ~ Present</p>
-        <ul>
-          <li>Developing Android and iOS cross-platform applications using Flutter.</li>
-          <li>Structuring and connecting layouts within applications.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>NFT & Blockchain-related Development Experience</h3>
-        <ul>
-          <li>
-            KLAYMAKERS 23 Digital Art and Design Ownership & Equity NFT smart contract
-            transaction protocol service development.
-          </li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>AI Engineering Programming <span>Start-up Mori</span></h3>
-        <p class="date">Feb. 2024 ~ Present</p>
-        <ul>
-          <li>A deep learning study based on artificial neural networks.</li>
-          <li>Researching algorithms for preventing AI image learning.</li>
-          <li>Technology stack: PyTorch.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Patents</h2>
-
-      <div class="patent-card">
-        <h3>PATENT-2024-0160072</h3>
-        <p>
-          Noise inserting system and method for protecting content from being mimicked by AI.
-        </p>
-      </div>
-
-      <div class="patent-card">
-        <h3>PATENT-2025-0016180</h3>
-        <p>
-          Efficient image noise insertion system and method for preventing AI learning.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Achievements</h2>
-
-      <ul class="simple-list">
-        <li>Civil Diplomat Representative of Siheung City, Gyeonggi-do, 2024–2025.</li>
-        <li>Special Auditing Student at Hokkaido University, until 2025.</li>
-        <li>Korea–Japan Exchange Scholarship Student, 2025–2026.</li>
-        <li>Special Auditing Research Student under Professor Emaru.</li>
-      </ul>
+      <article class="glass-card reveal">
+        <span class="card-number">03</span>
+        <h2>Hobby</h2>
+        <p>Personal notes, casual writing, hobbies, and creative interests.</p>
+        <a href="hobby.html">Open page →</a>
+      </article>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© 2026 Lee Juho. Built with GitHub Pages.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
