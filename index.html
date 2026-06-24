@@ -3,97 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lee Juho | Home</title>
+
+  <title>Lee Juho | ESblueRin</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="cursor-glow"></div>
 
   <header class="site-header">
     <div class="nav-container">
-      <a class="logo" href="index.html">ESblueRin</a>
+      <a class="logo" href="#home">ESblueRin</a>
 
       <nav class="nav-menu">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="projects.html">Projects</a>
-        <a class="nav-link" href="profile.html">Profile</a>
-        <a class="nav-link" href="hobby.html">Hobby</a>
+        <a class="nav-link" href="#home" data-route="home">Home</a>
+        <a class="nav-link" href="#projects" data-route="projects">Projects</a>
+        <a class="nav-link" href="#profile" data-route="profile">Profile</a>
+        <a class="nav-link" href="#hobby" data-route="hobby">Hobby</a>
       </nav>
+
+      <div class="top-music-player">
+        <button id="musicButton" class="music-control" type="button" aria-label="Play or pause music">
+          ▶
+        </button>
+
+        <div class="music-meta">
+          <span class="music-label">Now Playing</span>
+          <span id="musicTitle" class="music-title">Random BGM</span>
+        </div>
+
+        <input
+          id="musicSeek"
+          class="music-seek"
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+          aria-label="Music progress"
+        />
+
+        <button id="nextTrackButton" class="music-next" type="button" aria-label="Next track">
+          ↻
+        </button>
+      </div>
 
       <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
     </div>
   </header>
 
-  <main>
-    <section class="hero-section">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Mechatronics · AI · Robotics</p>
-          <h1 class="headline">
-            Lee Juho<br />
-            <span>building ideas between software and machines.</span>
-          </h1>
-          <p class="hero-text">
-            I am interested in WiFi CSI, AI engineering, robotics, control systems,
-            and practical application development.
-          </p>
-
-          <div class="hero-buttons">
-            <a class="button primary" href="profile.html">View Profile</a>
-            <a class="button secondary" href="projects.html">View Projects</a>
-          </div>
-        </div>
-
-        <div class="hero-panel reveal">
-          <div class="profile-orbit">
-            <img src="profile.jpg" alt="Lee Juho profile photo" />
-          </div>
-
-          <div class="floating-card card-one">
-            <strong>WiFi CSI</strong>
-            <span>Human Activity Understanding</span>
-          </div>
-
-          <div class="floating-card card-two">
-            <strong>PyTorch</strong>
-            <span>AI Engineering</span>
-          </div>
-
-          <div class="floating-card card-three">
-            <strong>Flutter</strong>
-            <span>Application Development</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container quick-grid">
-      <article class="glass-card reveal">
-        <span class="card-number">01</span>
-        <h2>Projects</h2>
-        <p>Research, application development, AI engineering, and startup projects.</p>
-        <a href="projects.html">Explore →</a>
-      </article>
-
-      <article class="glass-card reveal">
-        <span class="card-number">02</span>
-        <h2>Profile</h2>
-        <p>Education, work experience, skills, patents, and achievements.</p>
-        <a href="profile.html">Read more →</a>
-      </article>
-
-      <article class="glass-card reveal">
-        <span class="card-number">03</span>
-        <h2>Hobby</h2>
-        <p>Personal notes, casual writing, hobbies, and creative interests.</p>
-        <a href="hobby.html">Open page →</a>
-      </article>
-    </section>
-  </main>
+  <main id="app" class="app-root"></main>
 
   <footer class="site-footer">
     <p>© 2026 Lee Juho. Built with GitHub Pages.</p>
   </footer>
+
+  <audio id="bgmAudio" preload="metadata" loop></audio>
 
   <script src="script.js"></script>
 </body>
