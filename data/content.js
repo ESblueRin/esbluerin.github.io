@@ -803,8 +803,8 @@ window.SITE_CONTENT = {
         {
           title: "I wonder(arrangement)",
           text: "A simple arrangement with FL Studio",
-          image: "assets/composition/composition-01.png",
-          audio: "assets/composition/composition-01.mp3",
+          image: "assets/compositions/composition-01.png",
+          audio: "assets/compositions/composition-01.mp3",
         },
       ],
     },
@@ -873,8 +873,8 @@ window.SITE_CONTENT = {
         {
           title: "I wonder(arrangement)",
           text:  "FL Studio를 통한 간단한 편곡을 진행합니다.",
-          image: "assets/composition/composition-01.png",
-          audio: "assets/composition/composition-01.mp3",
+          image: "assets/compositions/composition-01.png",
+          audio: "assets/compositions/composition-01.mp3",
         },
       ],
     },
@@ -917,8 +917,8 @@ window.SITE_CONTENT = {
         {
          title: "I wonder(arrangement)",
           text: "FL Studioを使って簡単な編曲を行います。",
-          image: "assets/composition/composition-01.png",
-          audio: "assets/composition/composition-01.mp3",
+          image: "assets/compositions/composition-01.png",
+          audio: "assets/compositions/composition-01.mp3",
         },
       ],
     },
