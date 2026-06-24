@@ -704,6 +704,46 @@ function bindMusic() {
   });
 }
 
+let isThemeTransitioning = false;
+
+function changeThemeSmoothly(nextTheme) {
+  if (isThemeTransitioning) return;
+  if (state.theme === nextTheme) return;
+
+  isThemeTransitioning = true;
+
+  const previousTheme = state.theme;
+  const overlay = document.createElement("div");
+
+  overlay.className = `theme-fade-overlay ${
+    previousTheme === "light" && nextTheme === "dark"
+      ? "light-to-dark"
+      : "dark-to-light"
+  }`;
+
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(() => {
+    overlay.classList.add("visible");
+  });
+
+  setTimeout(() => {
+    state.theme = nextTheme;
+    document.body.dataset.theme = state.theme;
+  }, 260);
+
+  setTimeout(() => {
+    overlay.classList.remove("visible");
+  }, 420);
+
+  setTimeout(() => {
+    overlay.remove();
+    isThemeTransitioning = false;
+  }, 920);
+}
+
+
+
 function bindHeaderEvents() {
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", (event) => {
