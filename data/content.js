@@ -454,8 +454,8 @@ window.SITE_CONTENT = {
         personal: ["joholee123@gmail.com", "juho.lee@mori-corp.io"],
       },
       skills: [
-        ["Flutter Application Development", "2 / 5", 40],
-        ["PyTorch AI Engineering Programming", "4 / 5", 80],
+        ["Flutter Application Development", "2/5", 40],
+        ["PyTorch AI Engineering Programming", "4/5", 80],
       ],
       languages: [
         ["Korean", "Native", 100],
@@ -564,8 +564,8 @@ window.SITE_CONTENT = {
         personal: ["joholee123@gmail.com", "juho.lee@mori-corp.io"],
       },
       skills: [
-        ["Flutter Application Development", "2 / 5", 40],
-        ["PyTorch AI Engineering Programming", "4 / 5", 80],
+        ["Flutter Application Development", "2/5", 40],
+        ["PyTorch AI Engineering Programming", "4/5", 80],
       ],
       languages: [
         ["Korean", "Native", 100],
@@ -674,8 +674,8 @@ window.SITE_CONTENT = {
         personal: ["joholee123@gmail.com", "juho.lee@mori-corp.io"],
       },
       skills: [
-        ["Flutter Application Development", "2 / 5", 40],
-        ["PyTorch AI Engineering Programming", "4 / 5", 80],
+        ["Flutter Application Development", "2/5", 40],
+        ["PyTorch AI Engineering Programming", "4/5", 80],
       ],
       languages: [
         ["Korean", "Native", 100],
