@@ -459,7 +459,7 @@ window.SITE_CONTENT = {
       ],
       languages: [
         ["Korean", "Native", 100],
-        ["English", "Simple conversation", 60],
+        ["English", "TOEIC 700 ~ ", 60],
         ["Japanese", "JLPT N2", 60],
       ],
       overview: [
@@ -569,7 +569,7 @@ window.SITE_CONTENT = {
       ],
       languages: [
         ["Korean", "Native", 100],
-        ["English", "Simple conversation", 60],
+        ["English", "TOEIC 700 ~ ", 60],
         ["Japanese", "JLPT N2", 60],
       ],
       overview: [
@@ -679,7 +679,7 @@ window.SITE_CONTENT = {
       ],
       languages: [
         ["Korean", "Native", 100],
-        ["English", "Simple conversation", 60],
+        ["English", "TOEIC 700 ~ ", 60],
         ["Japanese", "JLPT N2", 60],
       ],
       overview: [
