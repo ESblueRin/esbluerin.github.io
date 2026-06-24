@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lee Juho | Profile</title>
+
+  <title>Lee Juho | Projects</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="cursor-glow"></div>
 
@@ -25,225 +28,75 @@
   </header>
 
   <main class="container">
-    <section class="profile-layout">
-      <aside class="profile-sidebar reveal">
-        <div class="profile-card-main">
-          <img src="profile.jpg" alt="Lee Juho profile photo" class="profile-photo-large" />
+    <section class="page-intro reveal">
+      <p class="eyebrow">Research & Development</p>
+      <h1 class="page-heading">Projects <span>Archive</span></h1>
+      <p>
+        Research, software development, AI engineering, and startup-related projects.
+      </p>
+    </section>
 
-          <h1>Lee Juho</h1>
-          <p class="kor-name">이주호</p>
-          <p class="profile-role">
-            Mechatronics Engineering Student<br />
-            Director at Mori
-          </p>
+    <section class="project-grid">
+      <article class="project-card reveal">
+        <div class="project-index">01</div>
+        <h2>CSI-based Human Activity Captioning</h2>
+        <p>
+          Research project on generating semantic descriptions of human activity
+          from WiFi CSI signals.
+        </p>
 
-          <div class="tag-list center">
-            <span>AI</span>
-            <span>Robotics</span>
-            <span>Flutter</span>
-            <span>PyTorch</span>
-          </div>
+        <div class="tag-list">
+          <span>WiFi CSI</span>
+          <span>Multimodal AI</span>
+          <span>PyTorch</span>
         </div>
+      </article>
 
-        <div class="mini-card">
-          <h2>Contact</h2>
-          <p><strong>Office</strong></p>
-          <p>12 Gaetbeol-ro, Yeonsu-gu, Incheon</p>
-          <p>mori@mori-corp.io</p>
-          <p>chzhdndbaoq@inu.ac.kr</p>
+      <article class="project-card reveal">
+        <div class="project-index">02</div>
+        <h2>Mori Application Development</h2>
+        <p>
+          Cross-platform application development using Flutter for Android and iOS.
+          This project focuses on practical application structure, layout composition,
+          and mobile user experience.
+        </p>
 
-          <p class="contact-gap"><strong>Personal</strong></p>
-          <p>joholee123@gmail.com</p>
-          <p>chzhdndbaoq@naver.com</p>
+        <div class="tag-list">
+          <span>Flutter</span>
+          <span>Mobile App</span>
+          <span>Front-end</span>
         </div>
+      </article>
 
-        <div class="mini-card">
-          <h2>Skills</h2>
+      <article class="project-card reveal">
+        <div class="project-index">03</div>
+        <h2>AI Learning Protection Research</h2>
+        <p>
+          Research on noise insertion methods to protect visual content from being
+          mimicked or learned by AI models.
+        </p>
 
-          <div class="skill-item" data-level="40">
-            <div class="skill-title">
-              <span>Flutter</span>
-              <span>2 / 5</span>
-            </div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-
-          <div class="skill-item" data-level="80">
-            <div class="skill-title">
-              <span>PyTorch</span>
-              <span>4 / 5</span>
-            </div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
+        <div class="tag-list">
+          <span>AI Protection</span>
+          <span>Image Noise</span>
+          <span>Patent</span>
         </div>
+      </article>
 
-        <div class="mini-card">
-          <h2>Languages</h2>
+      <article class="project-card reveal">
+        <div class="project-index">04</div>
+        <h2>KLAYMAKERS 23</h2>
+        <p>
+          Digital art and design ownership, equity NFT smart contract, and transaction
+          protocol service development experience.
+        </p>
 
-          <div class="skill-item" data-level="100">
-            <div class="skill-title">
-              <span>Korean</span>
-              <span>Native</span>
-            </div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-
-          <div class="skill-item" data-level="60">
-            <div class="skill-title">
-              <span>English</span>
-              <span>Simple</span>
-            </div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-
-          <div class="skill-item" data-level="60">
-            <div class="skill-title">
-              <span>Japanese</span>
-              <span>JLPT N2</span>
-            </div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
+        <div class="tag-list">
+          <span>Blockchain</span>
+          <span>NFT</span>
+          <span>Hackathon</span>
         </div>
-      </aside>
-
-      <section class="profile-main reveal">
-        <div class="page-intro">
-          <p class="eyebrow">Personal Profile</p>
-          <h1 class="page-heading">Lee Juho <span>Profile</span></h1>
-          <p>
-            Application development, AI engineering, startup projects, and
-            engineering research experiences.
-          </p>
-        </div>
-
-        <div class="tab-buttons">
-          <button class="tab-button active" data-tab="overview">Overview</button>
-          <button class="tab-button" data-tab="experience">Experience</button>
-          <button class="tab-button" data-tab="patents">Patents</button>
-          <button class="tab-button" data-tab="achievements">Achievements</button>
-        </div>
-
-        <div class="tab-panel active" id="overview">
-          <article class="content-card">
-            <h2>Current Positions</h2>
-
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div>
-                <h3>Director at Mori <span>INU Start-up Team</span></h3>
-                <p class="date">Feb. 2023 ~ Present</p>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div>
-                <h3>PINCOM’s President</h3>
-                <p class="date">Aug. 2023 ~ Dec. 2024</p>
-                <p>
-                  Operation and advisory of INU central programming academic organization.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="content-card">
-            <h2>Education</h2>
-
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div>
-                <h3>Incheon National University</h3>
-                <p>Department of Mechatronics Engineering</p>
-                <p class="date">Entrance in 2020 · Senior</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="content-card">
-            <h2>Side Hustles</h2>
-            <ul class="clean-list">
-              <li><del>LumaFusion Video Editing</del></li>
-              <li><del>YouTuber — Channel @Morichanneru</del></li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="tab-panel" id="experience">
-          <article class="content-card">
-            <h2>Application Development</h2>
-            <p class="date">Start-up Mori · July 2021 ~ Present</p>
-            <ul class="clean-list">
-              <li>Developing Android and iOS cross-platform applications using Flutter.</li>
-              <li>Structuring and connecting layouts within applications.</li>
-              <li>Application engineering, mainly front-end development, for 4 years.</li>
-            </ul>
-          </article>
-
-          <article class="content-card">
-            <h2>NFT & Blockchain Development</h2>
-            <ul class="clean-list">
-              <li>
-                KLAYMAKERS 23 Digital Art and Design Ownership & Equity NFT
-                smart contract transaction protocol service development.
-              </li>
-            </ul>
-          </article>
-
-          <article class="content-card">
-            <h2>AI Engineering Programming</h2>
-            <p class="date">Start-up Mori · Feb. 2024 ~ Present</p>
-            <ul class="clean-list">
-              <li>A deep learning study based on artificial neural networks.</li>
-              <li>Researching algorithms for preventing AI image learning.</li>
-              <li>Technology stack: PyTorch.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="tab-panel" id="patents">
-          <article class="content-card patent-highlight">
-            <h2>PATENT-2024-0160072</h2>
-            <p>
-              Noise inserting system and method for protecting content from being
-              mimicked by AI.
-            </p>
-          </article>
-
-          <article class="content-card patent-highlight">
-            <h2>PATENT-2025-0016180</h2>
-            <p>
-              Efficient image noise insertion system and method for preventing AI learning.
-            </p>
-          </article>
-        </div>
-
-        <div class="tab-panel" id="achievements">
-          <article class="content-card">
-            <h2>Profile & Achievements</h2>
-            <ul class="clean-list">
-              <li>KLAYMAKERS 23 Hackathon participation.</li>
-              <li>
-                Grand Prize, INU Engineering Education Innovation Center:
-                Motion Capture System Bio Healthcare Application & Rehabilitation
-                Robotics Connection Competition.
-              </li>
-              <li>
-                Completed mentoring program at Seoul National University College of
-                Education Affiliated Gifted Education Center.
-              </li>
-              <li>
-                Appointed as the representative citizen diplomat for Siheung City.
-                Japan program, Oct. 2024 ~ Jan. 2025.
-              </li>
-              <li>Civil Diplomat Representative of Siheung City, Gyeonggi-do, 2024–2025.</li>
-              <li>Special Auditing Student at Hokkaido University, until 2025.</li>
-              <li>Korea–Japan Exchange Scholarship Student, 2025–2026.</li>
-              <li>Special Auditing Research Student under Professor Emaru.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+      </article>
     </section>
   </main>
 
