@@ -918,7 +918,7 @@ window.SITE_CONTENT = {
          title: "I wonder(arrangement)",
           text: "FL Studioを使って簡単な編曲を行います。",
           image: "assets/composition-01.png",
-          audio: "assets/composition-01.mp3"、
+          audio: "assets/composition-01.mp3",
         },
       ],
     },
