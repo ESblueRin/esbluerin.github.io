@@ -427,11 +427,9 @@ function renderHobby() {
       </section>
 
       <section class="hobby-section reveal">
-        <h2>${escapeHtml(data.sections.anime)}</h2>
-        <div class="anime-log">
-          ${data.animeEntries.map(renderAnimeEntry).join("")}
-        </div>
-      </section>
+  <h2>${escapeHtml(data.sections.anime)}</h2>
+  ${renderAnimeLog(data.animeEntries)}
+</section>
 
       <section class="hobby-section reveal">
         <h2>${escapeHtml(data.sections.compose)}</h2>
@@ -468,6 +466,36 @@ function renderVtuber(data) {
   `;
 }
 
+function renderAnimeLog(entries) {
+  const recentEntries = entries.slice(-3).reverse();
+  const olderEntries = entries.slice(0, -3).reverse();
+
+  const recentHtml = recentEntries.map(renderAnimeEntry).join("");
+  const olderHtml = olderEntries.map(renderAnimeEntry).join("");
+
+  if (olderEntries.length === 0) {
+    return `
+      <div class="anime-log">
+        ${recentHtml}
+      </div>
+    `;
+  }
+
+  return `
+    <div class="anime-log">
+      ${recentHtml}
+    </div>
+
+    <div class="anime-log anime-log-hidden" id="olderAnimeLog">
+      ${olderHtml}
+    </div>
+
+    <button class="anime-toggle-button" type="button" id="animeToggleButton">
+      더 보기 (${olderEntries.length})
+    </button>
+  `;
+}
+
 function renderAnimeEntry(entry) {
   return `
     <article class="anime-entry">
@@ -497,6 +525,22 @@ function bindDynamicEffects() {
   bindSkillEffects();
   bindTabs();
   bindHashLinks();
+  bindAnimeToggle();
+}
+
+function bindAnimeToggle() {
+  const toggleButton = document.getElementById("animeToggleButton");
+  const olderAnimeLog = document.getElementById("olderAnimeLog");
+
+  if (!toggleButton || !olderAnimeLog) return;
+
+  toggleButton.addEventListener("click", () => {
+    const isOpen = olderAnimeLog.classList.toggle("open");
+
+    toggleButton.textContent = isOpen
+      ? "접기"
+      : `더 보기 (${olderAnimeLog.children.length})`;
+  });
 }
 
 function bindHashLinks() {
