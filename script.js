@@ -758,28 +758,51 @@ function createStarField() {
 }
 
 function createRainLayer() {
-  const oldRainLayer = document.querySelector(".rain-layer");
+ const oldRainLayer = document.querySelector(".rain-layer");
+  const oldRainMist = document.querySelector(".rain-mist");
+
   if (oldRainLayer) oldRainLayer.remove();
+  if (oldRainMist) oldRainMist.remove();
 
   const rainLayer = document.createElement("div");
   rainLayer.className = "rain-layer";
 
-  const rainCount = 54;
+  const rainMist = document.createElement("div");
+  rainMist.className = "rain-mist";
+
+  const rainCount = 120;
 
   for (let i = 0; i < rainCount; i += 1) {
     const streak = document.createElement("span");
 
-    streak.className = "rain-streak";
-    streak.style.left = `${Math.random() * 120}%`;
-    streak.style.top = `${Math.random() * 100}%`;
-    streak.style.height = `${22 + Math.random() * 42}px`;
-    streak.style.opacity = `${0.22 + Math.random() * 0.38}`;
-    streak.style.setProperty("--rain-duration", `${5.5 + Math.random() * 5}s`);
-    streak.style.setProperty("--rain-delay", `${Math.random() * 8}s`);
+    const depthRandom = Math.random();
+    const depthClass =
+      depthRandom > 0.82 ? "near" : depthRandom < 0.32 ? "far" : "mid";
+
+    const height = 28 + Math.random() * 58;
+    const width = Math.random() > 0.78 ? 1.4 : 1;
+    const opacity = 0.16 + Math.random() * 0.34;
+    const duration = 4.2 + Math.random() * 5.8;
+    const delay = -Math.random() * duration;
+    const angle = 10 + Math.random() * 10;
+    const drift = -8 - Math.random() * 18;
+    const blur = Math.random() * 0.9;
+
+    streak.className = `rain-streak ${depthClass}`;
+    streak.style.left = `${Math.random() * 115}%`;
+    streak.style.setProperty("--rain-height", `${height}px`);
+    streak.style.setProperty("--rain-width", `${width}px`);
+    streak.style.setProperty("--rain-opacity", `${opacity}`);
+    streak.style.setProperty("--rain-duration", `${duration}s`);
+    streak.style.setProperty("--rain-delay", `${delay}s`);
+    streak.style.setProperty("--rain-angle", `${angle}deg`);
+    streak.style.setProperty("--rain-drift", `${drift}vw`);
+    streak.style.setProperty("--rain-blur", `${blur}px`);
 
     rainLayer.appendChild(streak);
   }
 
+  document.body.prepend(rainMist);
   document.body.prepend(rainLayer);
 }
 
