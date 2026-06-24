@@ -789,37 +789,42 @@ function createRainLayer() {
     const depthClass =
       depthRandom > 0.78 ? "near" : depthRandom < 0.28 ? "far" : "mid";
 
-    const height = 34 + Math.random() * 58;
+    const height =
+  depthClass === "near"
+    ? 34 + Math.random() * 46
+    : depthClass === "mid"
+      ? 28 + Math.random() * 42
+      : 22 + Math.random() * 34;
 
-    const width =
-      depthClass === "near"
-        ? 2.2 + Math.random() * 1.8
-        : depthClass === "mid"
-          ? 1.6 + Math.random() * 1.2
-          : 1.1 + Math.random() * 0.8;
+const width =
+  depthClass === "near"
+    ? 1.15 + Math.random() * 0.75
+    : depthClass === "mid"
+      ? 0.85 + Math.random() * 0.55
+      : 0.55 + Math.random() * 0.45;
 
-    const opacity =
-      depthClass === "near"
-        ? 0.38 + Math.random() * 0.34
-        : depthClass === "mid"
-          ? 0.28 + Math.random() * 0.28
-          : 0.18 + Math.random() * 0.22;
+const opacity =
+  depthClass === "near"
+    ? 0.42 + Math.random() * 0.28
+    : depthClass === "mid"
+      ? 0.30 + Math.random() * 0.24
+      : 0.20 + Math.random() * 0.18;
 
-    const duration =
-      depthClass === "near"
-        ? 3.4 + Math.random() * 1.0
-        : depthClass === "mid"
-          ? 4.4 + Math.random() * 1.3
-          : 5.6 + Math.random() * 1.6;
+const duration =
+  depthClass === "near"
+    ? 0.58 + Math.random() * 0.48
+    : depthClass === "mid"
+      ? 0.78 + Math.random() * 0.62
+      : 1.05 + Math.random() * 0.85;
 
-    const delay = -Math.random() * duration;
-    const angle = 7 + Math.random() * 6;
-    const drift = -10 - Math.random() * 22;
+const delay = -Math.random() * duration;
+const angle = 6 + Math.random() * 5;
+const drift = -5 - Math.random() * 12;
 
-    const blur =
-      depthClass === "near"
-        ? Math.random() * 0.35
-        : 0.25 + Math.random() * 0.85;
+const blur =
+  depthClass === "near"
+    ? Math.random() * 0.18
+    : 0.12 + Math.random() * 0.45;
 
     streak.className = `rain-streak ${depthClass}`;
     streak.style.left = `${Math.random() * 118}%`;
