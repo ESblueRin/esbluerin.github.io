@@ -154,39 +154,80 @@ body[data-theme="light"] .star-field {
 }
 
 body[data-theme="light"] .rain-layer {
-  opacity: 0.35;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body[data-theme="light"] .rain-layer {
+  opacity: 1;
+}
+
+body[data-theme="dark"] .rain-layer {
+  opacity: 0;
 }
 
 .rain-streak {
   position: absolute;
-  width: 1px;
-  height: 34px;
+  top: -20vh;
+  width: var(--rain-width);
+  height: var(--rain-height);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(96,165,250,0.7));
-  transform: rotate(16deg);
-  animation: rainFall var(--rain-duration) linear infinite;
+  opacity: var(--rain-opacity);
+  transform: translate3d(0, 0, 0) rotate(var(--rain-angle));
+  filter: blur(var(--rain-blur));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    rgba(147, 197, 253, 0.75),
+    rgba(59, 130, 246, 0.18)
+  );
+  animation: softRainFall var(--rain-duration) linear infinite;
   animation-delay: var(--rain-delay);
 }
 
-@keyframes starTwinkle {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.85);
-  }
-
-  45% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
+.rain-streak.far {
+  opacity: calc(var(--rain-opacity) * 0.45);
+  filter: blur(calc(var(--rain-blur) + 0.7px));
 }
 
-@keyframes rainFall {
-  from {
-    transform: translate3d(0, -120vh, 0) rotate(16deg);
+.rain-streak.near {
+  opacity: calc(var(--rain-opacity) * 1.15);
+}
+
+.rain-mist {
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 38vh;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 25% 80%, rgba(191, 219, 254, 0.35), transparent 24rem),
+    radial-gradient(circle at 75% 90%, rgba(125, 211, 252, 0.22), transparent 26rem),
+    linear-gradient(180deg, transparent, rgba(239, 246, 255, 0.38));
+  transition: opacity 0.6s ease;
+}
+
+body[data-theme="light"] .rain-mist {
+  opacity: 1;
+}
+
+body[data-theme="dark"] .rain-mist {
+  opacity: 0;
+}
+
+@keyframes softRainFall {
+  0% {
+    transform: translate3d(0, -24vh, 0) rotate(var(--rain-angle));
   }
 
-  to {
-    transform: translate3d(-18vw, 120vh, 0) rotate(16deg);
+  100% {
+    transform: translate3d(var(--rain-drift), 128vh, 0) rotate(var(--rain-angle));
   }
 }
 
