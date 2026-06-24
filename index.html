@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Lee Juho | ESblueRin</title>
+  <title>ESblueRin</title>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body data-theme="dark">
   <div class="cursor-glow"></div>
 
   <header class="site-header">
@@ -29,8 +29,8 @@
         </button>
 
         <div class="music-meta">
-          <span class="music-label">Now Playing</span>
-          <span id="musicTitle" class="music-title">Random BGM</span>
+          <span id="musicLabel" class="music-label">Now Playing</span>
+          <span id="musicTitle" class="music-title">Scanning BGM...</span>
         </div>
 
         <input
@@ -48,6 +48,12 @@
         </button>
       </div>
 
+      <div class="lang-switch">
+        <button class="lang-button" type="button" data-lang="en">EN</button>
+        <button class="lang-button" type="button" data-lang="ko">KR</button>
+        <button class="lang-button" type="button" data-lang="ja">JP</button>
+      </div>
+
       <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
     </div>
   </header>
@@ -55,11 +61,12 @@
   <main id="app" class="app-root"></main>
 
   <footer class="site-footer">
-    <p>© 2026 Lee Juho. Built with GitHub Pages.</p>
+    <p>© 2026 ESblueRin. Built with GitHub Pages.</p>
   </footer>
 
   <audio id="bgmAudio" preload="metadata" loop></audio>
 
+  <script src="data/content.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
