@@ -807,10 +807,10 @@ function createRainLayer() {
 
     const duration =
       depthClass === "near"
-        ? 3.4 + Math.random() * 3.0
+        ? 3.4 + Math.random() * 1.0
         : depthClass === "mid"
-          ? 4.4 + Math.random() * 4.0
-          : 5.6 + Math.random() * 5.0;
+          ? 4.4 + Math.random() * 1.3
+          : 5.6 + Math.random() * 1.6;
 
     const delay = -Math.random() * duration;
     const angle = 10 + Math.random() * 8;
