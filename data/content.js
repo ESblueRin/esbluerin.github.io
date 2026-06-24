@@ -1,3 +1,1399 @@
+const ANIME_ENTRIES = [
+  {
+    title: "이 사람이 나의 주인님",
+    titleJa: "これが私の御主人様",
+    titleEn: "He Is My Master",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "하늘의 유실물",
+    titleJa: "そらのおとしもの",
+    titleEn: "Heaven's Lost Property",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "인피니트 스트라토스",
+    titleJa: "IS〈インフィニット・ストラトス〉",
+    titleEn: "Infinite Stratos",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "나는 친구가 적다",
+    titleJa: "僕は友達が少ない",
+    titleEn: "Haganai: I Don't Have Many Friends",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "천원돌파 그렌라간",
+    titleJa: "天元突破グレンラガン",
+    titleEn: "Gurren Lagann",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "건담 더블오",
+    titleJa: "機動戦士ガンダム00",
+    titleEn: "Mobile Suit Gundam 00",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "소드 아트 온라인",
+    titleJa: "ソードアート・オンライン",
+    titleEn: "Sword Art Online",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "아바타:코라의 전설",
+    titleJa: "レジェンド・オブ・コーラ",
+    titleEn: "The Legend of Korra",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "아바타:아앙의 전설",
+    titleJa: "アバター 伝説の少年アン",
+    titleEn: "Avatar: The Last Airbender",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "로젠 메이든",
+    titleJa: "ローゼンメイデン",
+    titleEn: "Rozen Maiden",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "괴물왕녀",
+    titleJa: "怪物王女",
+    titleEn: "Princess Resurrection",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "스타워즈:클론전쟁",
+    titleJa: "スター・ウォーズ/クローン・ウォーズ",
+    titleEn: "Star Wars: The Clone Wars",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "나루토",
+    titleJa: "NARUTO -ナルト-",
+    titleEn: "Naruto",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "명탐정 코난",
+    titleJa: "名探偵コナン",
+    titleEn: "Detective Conan",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "진격의 거인",
+    titleJa: "進撃の巨人",
+    titleEn: "Attack on Titan",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "경계의 저편",
+    titleJa: "境界の彼方",
+    titleEn: "Beyond the Boundary",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "마요치키",
+    titleJa: "まよチキ!",
+    titleEn: "Mayo Chiki!",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "놀러왔어!",
+    titleJa: "あそびにいくヨ!",
+    titleEn: "Cat Planet Cuties",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "중2병이라도 사랑이 하고싶어",
+    titleJa: "中二病でも恋がしたい!",
+    titleEn: "Love, Chunibyo & Other Delusions!",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "도시락 전쟁",
+    titleJa: "ベン・トー",
+    titleEn: "Ben-To",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "기교소녀는 상처받지 않아",
+    titleJa: "機巧少女は傷つかない",
+    titleEn: "Unbreakable Machine-Doll",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "아웃브레이크 컴퍼니",
+    titleJa: "アウトブレイク・カンパニー",
+    titleEn: "Outbreak Company",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "이세계에서 문제아들이 온다는 모양인데요?",
+    titleJa: "問題児たちが異世界から来るそうですよ?",
+    titleEn: "Problem Children Are Coming from Another World, Aren't They?",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "데이트 어 라이브",
+    titleJa: "デート・ア・ライブ",
+    titleEn: "Date A Live",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "변태왕자와 웃지 않는 고양이",
+    titleJa: "変態王子と笑わない猫。",
+    titleEn: "The \"Hentai\" Prince and the Stony Cat.",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "바보와 시험과 소환수",
+    titleJa: "バカとテストと召喚獣",
+    titleEn: "Baka and Test: Summon the Beasts",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "액셀월드",
+    titleJa: "アクセル・ワールド",
+    titleEn: "Accel World",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "이것은 좀비입니까?",
+    titleJa: "これはゾンビですか?",
+    titleEn: "Is This a Zombie?",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "마법소녀 마도카 마기카",
+    titleJa: "魔法少女まどか☆マギカ",
+    titleEn: "Puella Magi Madoka Magica",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "사쿠라장의 애완그녀",
+    titleJa: "さくら荘のペットな彼女",
+    titleEn: "The Pet Girl of Sakurasou",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "어떤과학의 초전자포",
+    titleJa: "とある科学の超電磁砲",
+    titleEn: "A Certain Scientific Railgun",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "어떤마술의 금서목록",
+    titleJa: "とある魔術の禁書目録",
+    titleEn: "A Certain Magical Index",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "건담 철혈의 오펀스",
+    titleJa: "機動戦士ガンダム 鉄血のオルフェンズ",
+    titleEn: "Mobile Suit Gundam: Iron-Blooded Orphans",
+    logs: [
+      "감상 날짜 기록 없음",
+    ],
+  },
+  {
+    title: "데이트 어 라이브 2기",
+    titleJa: "デート・ア・ライブⅡ",
+    titleEn: "Date A Live II",
+    logs: [
+      "(2014.06.21~22)",
+    ],
+  },
+  {
+    title: "노 게임 노 라이프",
+    titleJa: "ノーゲーム・ノーライフ",
+    titleEn: "No Game No Life",
+    logs: [
+      "(2014.07.04) (2014년도 2분기 넘사벽)",
+    ],
+  },
+  {
+    title: "블랙 불릿",
+    titleJa: "ブラック・ブレット",
+    titleEn: "Black Bullet",
+    logs: [
+      "(2014.07.05) (2014년도 2분기 넘사벽)",
+    ],
+  },
+  {
+    title: "신만이 아는 세계1,2기",
+    titleJa: "神のみぞ知るセカイ 第1期・第2期",
+    titleEn: "The World God Only Knows Seasons 1 & 2",
+    logs: [
+      "(2014.07.27밤~29새벽)",
+    ],
+  },
+  {
+    title: "농림",
+    titleJa: "のうりん",
+    titleEn: "No-Rin",
+    logs: [
+      "(2014.08.05밤~15일9시 55분 완료)",
+    ],
+  },
+  {
+    title: "러브라이브 1기",
+    titleJa: "ラブライブ！ School idol project 第1期",
+    titleEn: "Love Live! School Idol Project Season 1",
+    logs: [
+      "(2014.08.09 오후 3시경~2014.08.09 7시 21분경)",
+    ],
+  },
+  {
+    title: "프리즈마 이리야",
+    titleJa: "Fate/kaleid liner プリズマ☆イリヤ",
+    titleEn: "Fate/kaleid liner Prisma Illya",
+    logs: [
+      "(2014.08.12 오전 10시경~같은날 3화 까지 보고 중단)",
+    ],
+  },
+  {
+    title: "최근 내 여동생의 상태가 이상한 것 같다만",
+    titleJa: "最近、妹のようすがちょっとおかしいんだが。",
+    titleEn: "Recently, My Sister Is Unusual",
+    logs: [
+      "(2014.08.13 오전 5시~ 6시 17분경 3화까지 보고 중단)",
+    ],
+  },
+  {
+    title: "기어나와라 냐루코양",
+    titleJa: "這いよれ！ニャル子さん",
+    titleEn: "Haiyore! Nyaruko-san",
+    logs: [
+      "(2014.08.22밤~2014.08.23 오전 9시경 7화 까지 보고 중단)",
+      "(언젠진 모르지만 8화를 본 기억이 있음)",
+      "(2014.10.11 오후 6시 16분 9화~ 오후 7시 38분 12화)",
+    ],
+  },
+  {
+    title: "내 여자친구와 소꿉친구가 완전 수라장",
+    titleJa: "俺の彼女と幼なじみが修羅場すぎる",
+    titleEn: "Oreshura",
+    logs: [
+      "(2014.08.26오후 7시 1화)",
+      "(2014. 10.19 오후 1시28분 2화~ 오후 4시 17분 9화)",
+      "(2014.10.24 오후 9시 3분 10화 ~ 오후 10 29분 13화)",
+    ],
+  },
+  {
+    title: "사랑과 선거와 초콜릿",
+    titleJa: "恋と選挙とチョコレート",
+    titleEn: "Love, Election and Chocolate",
+    logs: [
+      "(2014.08.29 저녁 9시 48분~",
+    ],
+  },
+  {
+    title: "러브라이브 2기",
+    titleJa: "ラブライブ！ School idol project 第2期",
+    titleEn: "Love Live! School Idol Project Season 2",
+    logs: [
+      "(2014.09.05 오후 9시 34분~2014.09.05 오전 00시 15분 7화)",
+    ],
+  },
+  {
+    title: "신만이 아는 세계 여신편",
+    titleJa: "神のみぞ知るセカイ 女神篇",
+    titleEn: "The World God Only Knows: Goddesses",
+    logs: [
+      "(2014.09.06 오후 8시 34분~ 2014.09.07 오전 1시)",
+    ],
+  },
+  {
+    title: "극장판 하늘의 유실물 final : 영원한 내 새장",
+    titleJa: "そらのおとしものFinal 永遠の私の鳥籠",
+    titleEn: "Heaven's Lost Property Final: Eternal My Master",
+    logs: [
+      "(2014.09.07 오후 6시 25분~2014.09.07 오후 8시 23분)",
+    ],
+  },
+  {
+    title: "길티 크라운",
+    titleJa: "ギルティクラウン",
+    titleEn: "Guilty Crown",
+    logs: [
+      "(2014.09.08 오후 9시 28분~ 2014.09.09 오전 12시 14분 8화)",
+      "(2014.09.09 오후 9시 44분 9화~2014.09.10 오전 2시 33분 22화)",
+    ],
+  },
+  {
+    title: "오다 노부나의 야망",
+    titleJa: "織田信奈の野望",
+    titleEn: "The Ambition of Oda Nobuna",
+    logs: [
+      "(2014.09.12 오후 11시 ~2014.09.13 오전 1시 33분 6화)",
+      "(2014.09.13 오후 3시 06분 7화~2014.09.13 오후 5시 13분 13화)",
+    ],
+  },
+  {
+    title: "니세코이",
+    titleJa: "ニセコイ",
+    titleEn: "Nisekoi",
+    logs: [
+      "(2014.10.01 오후 2시 45분~ 오후 4시 2분 4화)",
+      "(2014.10.02 오후 9시 36분 5화~ 오후 11시 52분 10화)",
+      "(2014.10.08 오후 8시 14분 11화~ 오후 10시 23분 16화)",
+      "(2014.10.10 오후 9시 41분 17화~ 오후 11시 07분 20화)",
+    ],
+  },
+  {
+    title: "어떤마술의 금서목록 극장판",
+    titleJa: "劇場版 とある魔術の禁書目録 エンデュミオンの奇蹟",
+    titleEn: "A Certain Magical Index: The Movie – The Miracle of Endymion",
+    logs: [
+      "(2014.10.02 오전 10시 22분~ 오전 11시 49분)",
+    ],
+  },
+  {
+    title: "도쿄구울",
+    titleJa: "東京喰種トーキョーグール",
+    titleEn: "Tokyo Ghoul",
+    logs: [
+      "(2014.10.25 오후3시 54분~ 오후 8시 18분 12화)",
+    ],
+  },
+  {
+    title: "로그호라이즌1기",
+    titleJa: "ログ・ホライズン 第1シリーズ",
+    titleEn: "Log Horizon Season 1",
+    logs: [
+      "(2014.11.02 오전 8시 5분~ 오후 12시 21분 11화)",
+      "(2014. 11.02 오후 1시 49분 12화~ 오후 3시 32분 16화 중간)",
+      "(2014. 11.02 오후 3시 41분(16화 중간)~ 5시 12분 20화)",
+      "(2014. 11. 07 오후 시 30분  21화~ 오후 11시 19분 25화)",
+    ],
+  },
+  {
+    title: "정령사의 검무",
+    titleJa: "精霊使いの剣舞",
+    titleEn: "Blade Dance of the Elementalers",
+    logs: [
+      "(2014.12.14 오후 12시 43분~ 오후 2시 07분 4화 후반)",
+      "(2014.12.14 오후 2시 30분 4화 후반~ 오후 3시 10분 6화 후반)",
+      "(2014.12.14오후 3시 21분 6화 후반~ 오후 5시 35분 12화)",
+    ],
+  },
+  {
+    title: "아마기 브릴리언트 파크",
+    titleJa: "甘城ブリリアントパーク",
+    titleEn: "Amagi Brilliant Park",
+    logs: [
+      "(2014.12.28 오후 1시 53분~ 오후 6시 20분 13화 중반)",
+      "(2014.12.28 오후 6시 29분 13화 중반~ 오후 6시 38분 13화)",
+    ],
+  },
+  {
+    title: "니세코이 OVA 1화",
+    titleJa: "ニセコイ OVA 第1話",
+    titleEn: "Nisekoi OVA Episode 1",
+    logs: [
+      "(2014.12.31 오후 2시 3분~ 오후 2시 32분)",
+    ],
+  },
+  {
+    title: "류가조 나나나의 매장금",
+    titleJa: "龍ヶ嬢七々々の埋蔵金",
+    titleEn: "Nanana's Buried Treasure",
+    logs: [
+      "(2015년 1월 1일 오후 4시 44분~7시 58분 10화 중간 11분13초)",
+      "(2014년 1월 1일 오후 11시 28분 10화~ 2014년 1월 2일  오전 0시 00분 11화)",
+    ],
+  },
+  {
+    title: "소드 아트 온라인 2기-팬텀불릿",
+    titleJa: "ソードアート・オンラインII ファントム・バレット",
+    titleEn: "Sword Art Online II: Phantom Bullet",
+    logs: [
+      "(2015년 1월 10일 오후 2시 51분~ 오후 5시 52분 9화 10분 27초)",
+      "(2015년 1월 10일 오후 5시 55분 9화~ 오후 8시 11분 14.5화)",
+    ],
+  },
+  {
+    title: "역시 내 청춘 러브코미디는 잘못되었다. 1기",
+    titleJa: "やはり俺の青春ラブコメはまちがっている。 第1期",
+    titleEn: "My Teen Romantic Comedy SNAFU Season 1",
+    logs: [
+      "(2015년 1월 16일 오후 9시 53분~ 오후 10시 17분 1화)",
+    ],
+  },
+  {
+    title: "소드 아트 온라인 2기- 액스캘리버",
+    titleJa: "ソードアート・オンラインII キャリバー",
+    titleEn: "Sword Art Online II: Calibur",
+    logs: [
+      "(2015년 1월 17일 오전 10시 45분 15화 ~ 17화 11시 50분)",
+    ],
+  },
+  {
+    title: "소드 아트 온라인 2기- 마더즈 로자리오",
+    titleJa: "ソードアート・オンラインII マザーズ・ロザリオ",
+    titleEn: "Sword Art Online II: Mother's Rosario",
+    logs: [
+      "(2015년 1월 17일 1시 19분 18화~ 3시 48분 24화)",
+    ],
+  },
+  {
+    title: "단칸방의 침략자",
+    titleJa: "六畳間の侵略者!?",
+    titleEn: "Invaders of the Rokujouma!?",
+    logs: [
+      "(2015년 2월 07일 오전 9시 30분~ 8화 12분 59초 오후 12시 08분)",
+      "2015년 2월 8일 오후 7시 9분  8화 12분 59초~ 오후 8시 44분)",
+    ],
+  },
+  {
+    title: "트리니티 세븐",
+    titleJa: "トリニティセブン",
+    titleEn: "Trinity Seven",
+    logs: [
+      "(2015년 2월 20일 오전 1시 6분~ 6화 오전 3시 13분)",
+      "(2015년 2월 20일 오전 10시 2분 7화~ 11화 7분 53초 오전 11시 36분)",
+      "(2015년 2월 20일 오후 6시 11화 7분  53초~ 12화 6시 36분)",
+    ],
+  },
+  {
+    title: "낙원 추방",
+    titleJa: "楽園追放 -Expelled from Paradise-",
+    titleEn: "Expelled from Paradise",
+    logs: [
+      "(2015년 3월 13일 오후 8시 ~ 9시 40분)",
+    ],
+  },
+  {
+    title: "시원찮은 그녀의 육성법",
+    titleJa: "冴えない彼女の育てかた",
+    titleEn: "Saekano: How to Raise a Boring Girlfriend",
+    logs: [
+      "(2015년 4월 04일 오후 6시 55분~ 9화 12분 49초 오후 9시 49분)",
+      "(2015년 4월 4일 오후 10시 6분~ 12화 오후 11시 15분)",
+    ],
+  },
+  {
+    title: "구구레 코쿠리상",
+    titleJa: "繰繰れ！コックリさん",
+    titleEn: "Gugure! Kokkuri-san",
+    logs: [
+      "(2015년 5월 3일 오전 7시 39분~ 8화 오전 10시 27분)",
+    ],
+  },
+  {
+    title: "로그 호라이즌 2기",
+    titleJa: "ログ・ホライズン 第2シリーズ",
+    titleEn: "Log Horizon Season 2",
+    logs: [
+      "(2015년 5월 3일 오후 12시 56분~ 12화 오후 5시 9분)",
+      "(2015년 5월 9일 오후 10시 17분 13화 ~ 5월 10일 오전 2시 51분 25화)",
+    ],
+  },
+  {
+    title: "알드노아 제로",
+    titleJa: "アルドノア・ゼロ",
+    titleEn: "Aldnoah.Zero",
+    logs: [
+      "(2015년 6월 6일 오후 8시 51분~ 12화 2015년 6월 7일 오전 1시 01분 )",
+    ],
+  },
+  {
+    title: "알드노아 제로 2기",
+    titleJa: "アルドノア・ゼロ 第2期",
+    titleEn: "Aldnoah.Zero Season 2",
+    logs: [
+      "(2015년 6월 7일 오전 9시 26분~ 12화 2015년 6월 7일 오후 1시 37분",
+    ],
+  },
+  {
+    title: "앱솔루트 듀오",
+    titleJa: "アブソリュート・デュオ",
+    titleEn: "Absolute Duo",
+    logs: [
+      "(2015년 6월 14일 오전 11시 05분~ 8화 14분 01초 2015년 6월 14일 오후 1시 32분)",
+      "( 2015년 6월 20일  오후 4시 6분 8화~ 12화 2015년 6월 20일 오후 5시 55분)",
+    ],
+  },
+  {
+    title: "종말의 세라프",
+    titleJa: "終わりのセラフ",
+    titleEn: "Seraph of the End",
+    logs: [
+      "(2015년 7월 10일 오후 9시  18분~ 12화 2015년 7월 11일 오전 1시 24분)",
+    ],
+  },
+  {
+    title: "던전에서 만남을 추구하면 안되는 걸까?",
+    titleJa: "ダンジョンに出会いを求めるのは間違っているだろうか",
+    titleEn: "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
+    logs: [
+      "(2015년 7월 11일 오전 11시 46분~ 2015년 7월 11일 오후 4시 15분)",
+    ],
+  },
+  {
+    title: "이능배틀은 일상계 속에서",
+    titleJa: "異能バトルは日常系のなかで",
+    titleEn: "When Supernatural Battles Became Commonplace",
+    logs: [
+      "(2015년 7월 18일 오후 9시 14분~ 7화 2015년 7월 18일 오후 11시 42분)",
+    ],
+  },
+  {
+    title: "니세코이2기",
+    titleJa: "ニセコイ:",
+    titleEn: "Nisekoi Season 2",
+    logs: [
+      "(2015년 7월 26일 오후 12시 01분~ 2화 10분 24초 2015년 7월 26일 오후 12시 35분)",
+      "(2015년 7월 27일 오후 1시 02분 2화 10분 24초~ 2015년 7월 27일 오후 4시 32분)",
+    ],
+  },
+  {
+    title: "야마다군과 7인의 마녀",
+    titleJa: "山田くんと7人の魔女",
+    titleEn: "Yamada-kun and the Seven Witches",
+    logs: [
+      "(2015년 8월 9일 오후 4시 16분~ 12화 2015년 8월 9일 오후 8시 35분)",
+      "(OAD 1 2015년 8월 9일 오후 8시 36분~ 2015년 8월 9일 오후 8시 59분)",
+    ],
+  },
+  {
+    title: "테라포마스",
+    titleJa: "テラフォーマーズ",
+    titleEn: "Terra Formars",
+    logs: [
+      "(2015년 8월 14일 오후 11시 17분~ 2015년 8월 15일 오전 3시 46분)",
+    ],
+  },
+  {
+    title: "암살교실",
+    titleJa: "暗殺教室",
+    titleEn: "Assassination Classroom",
+    logs: [
+      "(2015년 8월 23일 오전11시 28분~ 11화 2015년 8월 23일 오후 3시 10분)",
+    ],
+  },
+  {
+    title: "공전마도사 후보생의 교관",
+    titleJa: "空戦魔導士候補生の教官",
+    titleEn: "Sky Wizards Academy",
+    logs: [
+      "(2015년 9월 26일 오후 5시 52분~ 2015년 9월 26일 오후 9시 57분)",
+    ],
+  },
+  {
+    title: "샬롯",
+    titleJa: "Charlotte",
+    titleEn: "Charlotte",
+    logs: [
+      "(2015년 9월 29일 오후 08시 06분~ 3화 2015년 9월 29일 오후 9시 17분)",
+      "(2015년 9월 30일 오전 08시 37분 4화~ 13화 2015년 9월 30일 오후 00시 19분)",
+    ],
+  },
+  {
+    title: "Gate- 자위대 그의 땅에서, 이처럼 싸우며",
+    titleJa: "GATE 自衛隊 彼の地にて、斯く戦えり",
+    titleEn: "Gate: Thus the JSDF Fought There!",
+    logs: [
+      "2015년 10월 3일 오후 11시 4분~ 2015년 10월 4일 오전 3시 17분)",
+    ],
+  },
+  {
+    title: "건어물 여동생 우마루",
+    titleJa: "干物妹！うまるちゃん",
+    titleEn: "Himouto! Umaru-chan",
+    logs: [
+      "(2015년 10월 18일 오후 12시 28분~ 2015년 10월 18일 오후 4시 34분)",
+    ],
+  },
+  {
+    title: "오버로드",
+    titleJa: "オーバーロード",
+    titleEn: "Overlord",
+    logs: [
+      "(2015년 10월 31일 오후 10시 54분~ 2015년 11월 01일 오전 3시 25분)",
+    ],
+  },
+  {
+    title: "갓 이터",
+    titleJa: "ゴッドイーター",
+    titleEn: "God Eater",
+    logs: [
+      "(2015년 11월 7일 오후 7시 23분~ 8화 2015년 11월 7일 오후 10시 14분)",
+      "(2015년 11월 7일 오후 10시 22분 8화 ~ 9화 2015년 11월 7일 오후 10시 45분)",
+    ],
+  },
+  {
+    title: "낙제기사의 영웅담",
+    titleJa: "落第騎士の英雄譚",
+    titleEn: "Chivalry of a Failed Knight",
+    logs: [
+      "(2015년 12월 31일 오후 9시 10분~ 12화 2016년 1월 1일 오전 1시 26분)",
+    ],
+  },
+  {
+    title: "학전도시 애스터리스크",
+    titleJa: "学戦都市アスタリスク",
+    titleEn: "The Asterisk War",
+    logs: [
+      "(2016년 1월 2일 오후 9시 29분~ 7화 2016년 1월 2일 오후 11시 55분)",
+      "2016년 1월 3일 오전 9시 06분 8화~ 12화 2016년 1월 3일 오전 10시 50분)",
+    ],
+  },
+  {
+    title: "원펀맨",
+    titleJa: "ワンパンマン",
+    titleEn: "One-Punch Man",
+    logs: [
+      "(2016년 1월 16일 오후 9시 00분~ 12화 2016년 1월 17일 오전 12시 13분)",
+    ],
+  },
+  {
+    title: "종말의 세라프 2기",
+    titleJa: "終わりのセラフ 名古屋決戦編",
+    titleEn: "Seraph of the End: Battle in Nagoya",
+    logs: [
+      "(2016년 1월 30일 오전 11시 19분~ 12화 2016년 1월 30일 오후 3시 32분)",
+    ],
+  },
+  {
+    title: "아르슬란 전기",
+    titleJa: "アルスラーン戦記",
+    titleEn: "The Heroic Legend of Arslan",
+    logs: [
+      "(2016년 2월 05일 오후 9시 17분~ 3화 2016년 2월 05일 오후10시 22분)",
+      "(2016년 2월 5일 오후 10시 28분 4화 ~ 4화 2016년 2월 5일 오후 10시 49분)",
+      "(2015년 2월 5일 오후 11시 03분 5화~ 12화 2016년 2월 6일 오전 1시 54분)",
+      "(2016년 2월 6일 오후 3시 32분 13화~ 15화 2016년 2월 6일 오후 4시 56분)",
+      "(2016년 2월 8일 오후 4시 05분 16화~ 25화 2016년 2월 8일 오후 7시 37분)",
+    ],
+  },
+  {
+    title: "시도니아의 기사",
+    titleJa: "シドニアの騎士",
+    titleEn: "Knights of Sidonia",
+    logs: [
+      "(2016년 2월 27일 오후 8시 11분~ 12화 2016년 2월 28일 오전 12시 21분)",
+    ],
+  },
+  {
+    title: "시도니아의 기사 제 9행성 전역",
+    titleJa: "シドニアの騎士 第九惑星戦役",
+    titleEn: "Knights of Sidonia: Battle for Planet Nine",
+    logs: [
+      "(2016년 2월 28일 오전 9시 59분~  12화 2016년 2월 28일 오후 2시 02분)",
+    ],
+  },
+  {
+    title: "아인",
+    titleJa: "亜人",
+    titleEn: "Ajin: Demi-Human",
+    logs: [
+      "(2016년 5월 28일 오후 9시 09분 ~ 13화 5월 29분 오전 1시 40분)",
+    ],
+  },
+  {
+    title: "학전도시 애스터리스크",
+    titleJa: "学戦都市アスタリスク",
+    titleEn: "The Asterisk War",
+    logs: [
+      "(2016년 10월 12일 오전 11시 36분 13화~ 16화 2016년 10월 12일 오후 1시 2분)",
+      "(2016년 10월 13일 오전 5시 52분 17화~ 18화 2016년 10월 13일 오전 6시 34분)",
+      "(2016년 10월 14일 오후 7시 5분 19화~ 24화 2016년 10월 14일  오후 9시 14분)",
+    ],
+  },
+  {
+    title: "Gate- 자위대 그의 땅에서, 이처럼 싸우며 (2기) - 우익주의",
+    titleJa: "GATE 自衛隊 彼の地にて、斯く戦えり 炎龍編",
+    titleEn: "Gate Season 2",
+    logs: [
+      "(2017년 1월 13일 오후 7시 05분 13화(1화) ~ 24화(12화) 2017년 1월 13일 오후 11시 15분)",
+    ],
+  },
+  {
+    title: "아인 2기",
+    titleJa: "亜人 第2クール",
+    titleEn: "Ajin Season 2",
+    logs: [
+      "(2017년 1월 23일 오후 5시 38분 14화~ 26화 2017년 1월 23일 오후 10시 12분)",
+    ],
+  },
+  {
+    title: "온라인 게임의 신부는 여자아이가 아니라고 생각한 거야?",
+    titleJa: "ネトゲの嫁は女の子じゃないと思った？",
+    titleEn: "And You Thought There Is Never a Girl Online?",
+    logs: [
+      "(2017년 1월 27일 오전 9시 56분 1화 ~ 2화 2017년 1월 27일 1월 27일)",
+      "(2017년 1월 28일 오후 2시 25분 3화 ~ 2017년 1월 28일 오후 5시 51분)",
+    ],
+  },
+  {
+    title: "마사무네의 리벤지",
+    titleJa: "政宗くんのリベンジ",
+    titleEn: "Masamune-kun's Revenge",
+    logs: [
+      "2017년 03월 26일 오전 10시 42분 1화~ 5화 2017년 03월 26일 오후 12시 27분",
+      "2017년 03월 26일 오후 12시 53분 6화~ 12화 2017년 03월 26일 오후 03시 22분",
+    ],
+  },
+  {
+    title: "테라포마스 리벤지",
+    titleJa: "テラフォーマーズ リベンジ",
+    titleEn: "Terra Formars Revenge",
+    logs: [
+      "2017년 05월 17일 오전 10시 42분 1화~ 13화 2017년 05월 17일 오후3시 13분",
+    ],
+  },
+  {
+    title: "변변찮은 마술강사와 금기교전",
+    titleJa: "ロクでなし魔術講師と禁忌教典",
+    titleEn: "Akashic Records of Bastard Magic Instructor",
+    logs: [
+      "2017년 07월 23일 오전 10시 32분 1화 ~ 10화 중간 2017년 07월 23일 오후 2시 15분",
+      "2017년 07월 23일 오후 3시 15분 10화 중간 ~ 12화 2017년 07월 23일 오후 4시 12분",
+    ],
+  },
+  {
+    title: "최약무패의 신장기룡",
+    titleJa: "最弱無敗の神装機竜",
+    titleEn: "Undefeated Bahamut Chronicle",
+    logs: [
+      "2017년 12월 25일 오후 1시 44분 1화 ~ 10화 중간 2017년 12월 25일 오후 5시 06분",
+      "2017년 12월 30일 오후 6시 06분 10화 중간~ 12화 2017년 12월 30일 오후 7시 03분",
+    ],
+  },
+  {
+    title: "아르슬란 전기 2기 풍진난무",
+    titleJa: "アルスラーン戦記 風塵乱舞",
+    titleEn: "The Heroic Legend of Arslan: Dust Storm Dance",
+    logs: [
+      "2017년 12월 31일 오후 3시 15분 1화~ 8화 2017년 12월 31일 오후 6시 09분",
+    ],
+  },
+  {
+    title: "이누야시키",
+    titleJa: "いぬやしき",
+    titleEn: "Inuyashiki",
+    logs: [
+      "2017년 1월 14일 오후 4시 00분 1화 ~  11화 초반 2017년1월 14일 7시 23분",
+      "2017년1월 14일 7시 47분 11화 초반 ~ 11화 2017년1월 14일 8시 08분",
+    ],
+  },
+  {
+    title: "어서오세요 실력지상주의 교실에",
+    titleJa: "ようこそ実力至上主義の教室へ",
+    titleEn: "Classroom of the Elite",
+    logs: [
+      "2017년 1월 20일 오후 8시 31분 1화~ 7화 11분 39초 2017년 1월 20일 오후 10시 58분",
+      "2017년 1월 20일 오후 11시 03분 7화 11분 40초 ~ 12화  2017년 1월 21일 오전 1시 07분",
+    ],
+  },
+  {
+    title: "블렌드 S",
+    titleJa: "ブレンド・S",
+    titleEn: "Blend S",
+    logs: [
+      "2018년 1월 28일 오후 9시 38분 1화 ~ 9화 2018년 1월 29일 오전 12시 43분",
+      "2018년 2월 03일 오후 4시 54분 ~ 12화 2월 03일 오후 5시 58분",
+    ],
+  },
+  {
+    title: "진격의 거인 2기",
+    titleJa: "進撃の巨人 Season 2",
+    titleEn: "Attack on Titan Season 2",
+    logs: [
+      "2018년 1월 28일 오후 8시 46분 1화 ~ 12화  2018년 1월 29일 오전 12시 54분",
+    ],
+  },
+  {
+    title: "정해하는 카도",
+    titleJa: "正解するカド",
+    titleEn: "KADO: The Right Answer",
+    logs: [
+      "2018년 2월 8일 오후 10시 14분 1화 ~ 12화 2018년 2월 9일 오전 2시 19분",
+    ],
+  },
+  {
+    title: "극장판 데이트 어 라이브 마유리 저지먼트",
+    titleJa: "劇場版デート・ア・ライブ 万由里ジャッジメント",
+    titleEn: "Date A Live Movie: Mayuri Judgment",
+    logs: [
+      "2018년 2월 11일 오후 9시 42분 ~ 2018년 2월 11일 오후 10시 50분",
+    ],
+  },
+  {
+    title: "에로망가 선생",
+    titleJa: "エロマンガ先生",
+    titleEn: "Eromanga Sensei",
+    logs: [
+      "2018년 2월 16일 오후 10시 10분 1화 ~ 8화 2018년 2월 17일 오전 12시 58분",
+      "2018년 2월 17일 오후 7시 02분 9화 ~ 12화 2018년 2월 17일 오후 8시 27분",
+    ],
+  },
+  {
+    title: "메이드 인 어비스",
+    titleJa: "メイドインアビス",
+    titleEn: "Made in Abyss",
+    logs: [
+      "2018년 3월 1일 오후 12시 51분 1화 ~ 13화 2018년 3월 1일 오후 5시 47분",
+    ],
+  },
+  {
+    title: "노 게임 노 라이프 제로",
+    titleJa: "ノーゲーム・ノーライフ ゼロ",
+    titleEn: "No Game No Life: Zero",
+    logs: [
+      "2018년 3월 18일 오후 7시 50분 ~ 2018년 03월 18일 9시 36분",
+    ],
+  },
+  {
+    title: "소드 아트 온라인 오디널 스케일",
+    titleJa: "劇場版 ソードアート・オンライン -オーディナル・スケール-",
+    titleEn: "Sword Art Online The Movie: Ordinal Scale",
+    logs: [
+      "2018년 4월 13일 오후 10시 46분 ~ 2018년 4월 14일 오전 12시 43분",
+    ],
+  },
+  {
+    title: "월요일의 타와와",
+    titleJa: "月曜日のたわわ",
+    titleEn: "Tawawa on Monday",
+    logs: [
+      "2018년 9월 16일 오전 12시 39분 1화 ~ 14화 2018년 9월 16일 오전 1시 33분",
+    ],
+  },
+  {
+    title: "데스마치에서 시작되는 이세계 광상곡",
+    titleJa: "デスマーチからはじまる異世界狂想曲",
+    titleEn: "Death March to the Parallel World Rhapsody",
+    logs: [
+      "2018년 11월 24일 오후 11시 09분 1화 ~ 12화 2018년 11월 25일 오전 3시 25분",
+    ],
+  },
+  {
+    title: "오버로드 2기",
+    titleJa: "オーバーロードII",
+    titleEn: "Overlord II",
+    logs: [
+      "2018년 12월 02일 오전 9시 32분 1화 ~ 10화 중간 2018년 12월 02일 오후 1시 00분",
+      "2018년 12월 02일 오후 1시 07분 10화 중간 ~  12화 중간 2018년 12월 02일 오후 1시 43분",
+      "2018년 12월 02일 오후 2시 26분 12화 중간 ~ 13화 2018년 12월 02일 오후 3시 11분",
+    ],
+  },
+  {
+    title: "오버로드 3기",
+    titleJa: "オーバーロードIII",
+    titleEn: "Overlord III",
+    logs: [
+      "2018년 12월 02일 오후 3시 29분 1화 ~ 13화 2018년 12월 02일 오후 8시 14분",
+    ],
+  },
+  {
+    title: "일하는 세포",
+    titleJa: "はたらく細胞",
+    titleEn: "Cells at Work!",
+    logs: [
+      "2018년 12월 05일 오후 2시 51분 1화 〜 3화 2018년 12월 05일 오후 03시 55분",
+    ],
+  },
+  {
+    title: "건어물 여동생! 우마루짱 R",
+    titleJa: "干物妹！うまるちゃんR",
+    titleEn: "Himouto! Umaru-chan R",
+    logs: [
+      "2018년 12월 08일 오후 2시 59분 1화 〜 2화 2018년 12월 08일 오후 3시 41분",
+    ],
+  },
+  {
+    title: "ssss.그리드맨",
+    titleJa: "SSSS.GRIDMAN",
+    titleEn: "SSSS.Gridman",
+    logs: [
+      "2018년 12월 30일 오후 12시 19분 1화 ~ 12화 2018년 12월 30일 오후 4시 40분",
+    ],
+  },
+  {
+    title: "팝팀에픽",
+    titleJa: "ポプテピピック",
+    titleEn: "Pop Team Epic",
+    logs: [
+      "2018년 12월 30일 오후 8시 32분 1화 ~ 8화 중간 2018년 12월 30일 오후 9시 43분",
+    ],
+  },
+  {
+    title: "청춘 돼지는 바니걸 선배의 꿈을 꾸지 않는다",
+    titleJa: "青春ブタ野郎はバニーガール先輩の夢を見ない",
+    titleEn: "Rascal Does Not Dream of Bunny Girl Senpai",
+    logs: [
+      "2019년 2월 9일 오후 2시 33분 1화 ~ 8화 22분 2019년 2월 9일 오후 5시 41분",
+      "2019년 2월 9일 오후 5시 57분 8화 22분 ~ 13화 2019년 2월 9일 오후 7시 58분",
+    ],
+  },
+  {
+    title: "고블린 슬레이어",
+    titleJa: "ゴブリンスレイヤー",
+    titleEn: "Goblin Slayer",
+    logs: [
+      "2019년 2월 19일 오후 2시 38분 1화 ~ 12화 2019년 2월 19일 오후 6시 55분",
+    ],
+  },
+  {
+    title: "전생했더니 슬라임인 건에 대하여",
+    titleJa: "転生したらスライムだった件",
+    titleEn: "That Time I Got Reincarnated as a Slime",
+    logs: [
+      "2019년 3월 31일 오후 2시 26분 1화 ~ 21회 2019년 3월 31일 오후 9시 52분",
+      "2019년 3월 31일 오후 10시 38분 22화 ~ 2019년 4월 1일 오전 12시 05분",
+    ],
+  },
+  {
+    title: "소드 아트 온라인 엘리시제이션",
+    titleJa: "ソードアート・オンライン アリシゼーション",
+    titleEn: "Sword Art Online: Alicization",
+    logs: [
+      "2019년 4월 06일 오후 1시 04분 1화 ~24화  2019년 4월 06일 오후 10시 27분",
+    ],
+  },
+  {
+    title: "이세계 마왕과 소환 소녀의 노예마술",
+    titleJa: "異世界魔王と召喚少女の奴隷魔術",
+    titleEn: "How Not to Summon a Demon Lord",
+    logs: [
+      "2019년 5월 08일 오후 9시 36분 1화 ~ 12화 2019년 5월 09일 오전 1시 52분",
+    ],
+  },
+  {
+    title: "카구야 님은 고백받고 싶어 ~천재들의 연애 두뇌전~ (연애물 명작)",
+    titleJa: "かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜",
+    titleEn: "Kaguya-sama: Love Is War",
+    logs: [
+      "2019년 5월 25일 오후 2시 35분 1화 ~ 12화 2019년 5월 25일 오후 6시 59분",
+    ],
+  },
+  {
+    title: "진격의 거인 3기",
+    titleJa: "進撃の巨人 Season 3",
+    titleEn: "Attack on Titan Season 3",
+    logs: [
+      "2019년 6월 22일 오전 9시 38분 1화 ~ 9화 중간 2019년 6월 22일 오후 12시 41분",
+      "2019년 6월 22일 오후 1시 10분 9화 중간 ~ 12화 2019년 6월 22일 오후 2시 19분",
+    ],
+  },
+  {
+    title: "방패용사 성공담",
+    titleJa: "盾の勇者の成り上がり",
+    titleEn: "The Rising of the Shield Hero",
+    logs: [
+      "2019년 6월 29일 오후 2시 53분 1화 ~ 13화 초반 2019년 6월 29일 오후 7시 29분",
+      "2019년 6월 29일 오후 8시 10분 13화 초반  ~ 25화 2019년 6월 30일 오전 12시 44분",
+    ],
+  },
+  {
+    title: "5등분의 신부",
+    titleJa: "五等分の花嫁",
+    titleEn: "The Quintessential Quintuplets",
+    logs: [
+      "2019년 7월 05일 오후 3시 12분 1화 ~  5화 2019년 7월 05일 오후 5시 04분",
+    ],
+  },
+  {
+    title: "진격의 거인 season 3 (2019)",
+    titleJa: "進撃の巨人 Season 3 (2019)",
+    titleEn: "Attack on Titan Season 3 (2019)",
+    logs: [
+      "2019년 7월 27일 오전 10시 40분 1화 ~ 10화 2019년 7월 27일 오후 2시 12분",
+    ],
+  },
+  {
+    title: "백련의 패왕과 성약의 발키리",
+    titleJa: "百錬の覇王と聖約の戦乙女",
+    titleEn: "The Master of Ragnarok & Blesser of Einherjar",
+    logs: [
+      "2019년 8월 10일 오후 3시 04분 1화 ~ 12화  2019년 8월 10일 오후 7시 23분",
+    ],
+  },
+  {
+    title: "칠성의 스바루",
+    titleJa: "七星のスバル",
+    titleEn: "Seven Senses of the Re'Union",
+    logs: [
+      "2019년 9월 03일 오전 11시 33분 1화 ~ 12화 2019년 9월 03일 오후 3시 52분",
+    ],
+  },
+  {
+    title: "던전에서 만남을 추구하면 안되는 걸까 오리온의 화살",
+    titleJa: "劇場版 ダンジョンに出会いを求めるのは間違っているだろうか -オリオンの矢-",
+    titleEn: "Is It Wrong to Try to Pick Up Girls in a Dungeon?: Arrow of the Orion",
+    logs: [
+      "2019년 9월 05일 오후 2시 02분 ~ 2019년 9월 05일 오후 3시 20분",
+    ],
+  },
+  {
+    title: "현자의 손자",
+    titleJa: "賢者の孫",
+    titleEn: "Wise Man's Grandchild",
+    logs: [
+      "2019년 9월 10일 오후 9시 15분 1화 ~  12화 2019년 9월 11일 오전 1시 41분",
+    ],
+  },
+  {
+    title: "던전에서 만남을 추구하면 안되는 걸까? 2기",
+    titleJa: "ダンジョンに出会いを求めるのは間違っているだろうかII",
+    titleEn: "Is It Wrong to Try to Pick Up Girls in a Dungeon? II",
+    logs: [
+      "2019년 10월 03일 오전 8시 56분 1화 ~ 6화 2019년 10월 03일 오전 11시 1분",
+      "2019년 10월 03일 오후 3시 45분 7화 ~ 12화 2019년 10월 03일 오후 5시 50분",
+    ],
+  },
+  {
+    title: "흔해빠진 직업으로 세계최강",
+    titleJa: "ありふれた職業で世界最強",
+    titleEn: "Arifureta: From Commonplace to World's Strongest",
+    logs: [
+      "2019년 12월 18일 오전 1시 38분 1화 ~ 12화 2019년 12월 18일 오전 5시 49분",
+      "2019년 12월 27일 오전 9시 38분 13화 ~ 13화 2019년 12월 27일 오전 10시 01분",
+    ],
+  },
+  {
+    title: "저 능력치는 평균으로 해달라고 했잖아요",
+    titleJa: "私、能力は平均値でって言ったよね！",
+    titleEn: "Didn't I Say to Make My Abilities Average in the Next Life?!",
+    logs: [
+      "2020년 1월 2일 오전 2시 51분 1화 ~ 6화 2020년 1월 2일 오전 5시 05분",
+    ],
+  },
+  {
+    title: "전생했더니 슬라임인 건에 대하여 2기",
+    titleJa: "転生したらスライムだった件 第2期",
+    titleEn: "That Time I Got Reincarnated as a Slime Season 2",
+    logs: [
+      "2021년 06월 24일 오후 12시 49분 1화 ~ 13화 2021년 06월 24일 오후 5시 26분",
+    ],
+  },
+  {
+    title: "애니메이션 원룸 1기",
+    titleJa: "One Room 第1期",
+    titleEn: "One Room Season 1",
+    logs: [
+      "2021년 06월 27일 오후 2시 25분 1화 ~ 12화 2021년 06월 27일 오후 3시 10분",
+    ],
+  },
+  {
+    title: "애니메이션 원룸 2기",
+    titleJa: "One Room セカンドシーズン",
+    titleEn: "One Room Season 2",
+    logs: [
+      "2021년 06월 27일 오후 3시 12분 1화 ~ 13화 2021년 06월 27일 오후 4시 3분",
+    ],
+  },
+  {
+    title: "애니메이션 원룸 3기",
+    titleJa: "One Room サードシーズン",
+    titleEn: "One Room Season 3",
+    logs: [
+      "2021년 06월 27일 오후 4시 4분 1화 ~ 12화 2021년 06월 27일 오후 4시 50분",
+    ],
+  },
+  {
+    title: "소드 아트 온라인 엘리시제이션 : war of Underworld 1쿨",
+    titleJa: "ソードアート・オンライン アリシゼーション War of Underworld 第1クール",
+    titleEn: "Sword Art Online: Alicization – War of Underworld Part 1",
+    logs: [
+      "2021년 06월 28일 오후 2시 7분 1화 ~ 13화 2021년 06월 28일 오후 6시 40분",
+    ],
+  },
+  {
+    title: "소드 아트 온라인 엘리시제이션 : war of Underworld 2쿨",
+    titleJa: "ソードアート・オンライン アリシゼーション War of Underworld 第2クール",
+    titleEn: "Sword Art Online: Alicization – War of Underworld Part 2",
+    logs: [
+      "2021년 06월 30일 오후 1시 20분 1화 ~ 12화 2021년 06월 30일 오후 5시 34분",
+    ],
+  },
+  {
+    title: "카구야 님은 고백받고 싶어 ~천재들의 연애 두뇌전~ 2기",
+    titleJa: "かぐや様は告らせたい？〜天才たちの恋愛頭脳戦〜",
+    titleEn: "Kaguya-sama: Love Is War Season 2",
+    logs: [
+      "2021년 07월 14일 오후 2시 35분 1화 ~ 11화 2021년 07월 14일 06시 40분",
+      "2021년 07월 14일 오후 7시 31분 12화 ~ 12화 2021년 07월 14일 오후 7시 59분",
+    ],
+  },
+  {
+    title: "던전에서 만남을 추구하면 안되는 걸까 3기",
+    titleJa: "ダンジョンに出会いを求めるのは間違っているだろうかIII",
+    titleEn: "Is It Wrong to Try to Pick Up Girls in a Dungeon? III",
+    logs: [
+      "2021년 07월 24일 오후 2시 13분 1화 ~ 10화 2021년 07월 24일 오후 5시 59분",
+      "2021년 07월 24일 오후 9시 12분 11화 ~ 12화 2021년 07월 24일 오후 9시 56분",
+    ],
+  },
+  {
+    title: "무직전생 ~이세계에 갔으면 최선을 다한다~ 1쿨",
+    titleJa: "無職転生 〜異世界行ったら本気だす〜 第1クール",
+    titleEn: "Mushoku Tensei: Jobless Reincarnation Part 1",
+    logs: [
+      "2021년 08월 14일 오후 1시 07분 1화 ~ 2021년 08월 14일 오후 5시 16분 11화",
+    ],
+  },
+  {
+    title: "블랙 미궁 컴퍼니",
+    titleJa: "迷宮ブラックカンパニー",
+    titleEn: "The Dungeon of Black Company",
+    logs: [
+      "2021년 10월 10일 오후 1시 50분 1화 ~ 11화 중간 2021년 10월 10일 오후 5시 38분",
+      "2021년 10월 10일 오후 6시 01분 11화 중간 ~ 12화 2021년 10월 10일 오후 6시 51분",
+    ],
+  },
+  {
+    title: "현실주의 용사의 왕국 재건기",
+    titleJa: "現実主義勇者の王国再建記",
+    titleEn: "How a Realist Hero Rebuilt the Kingdom",
+    logs: [
+      "2021년 10월 10일 오후 7시 20분 1화 ~ 13화 2021년 10월 10일 오후 11시 56분",
+    ],
+  },
+  {
+    title: "마녀의 여행",
+    titleJa: "魔女の旅々",
+    titleEn: "The Journey of Elaina",
+    logs: [
+      "2021년 10월 13일 오후 9시 14분 1화 ~ 5화 2021년 10월 13일 오후 11시 02분",
+    ],
+  },
+  {
+    title: "수염을 깎다. 그리고 여고생을 줍다",
+    titleJa: "ひげを剃る。そして女子高生を拾う。",
+    titleEn: "Higehiro: After Being Rejected, I Shaved and Took in a High School Runaway",
+    logs: [
+      "2021년 11월 05일 오후 6시 55분 1화 ~ 13화 2021년 11월 05일 오후 11시 38분",
+    ],
+  },
+  {
+    title: "전생했더니 슬라임인 건에 대하여 2기 파트2",
+    titleJa: "転生したらスライムだった件 第2期 第2部",
+    titleEn: "That Time I Got Reincarnated as a Slime Season 2 Part 2",
+    logs: [
+      "2021년 11월 06일 오후12시 22분 1화 ~ 12화 2021년 11월 06일 오후 4시 45분",
+    ],
+  },
+  {
+    title: "어쨌든 귀여워",
+    titleJa: "トニカクカワイイ",
+    titleEn: "TONIKAWA: Over the Moon for You",
+    logs: [
+      "2021년 12월 03일 오후 3시 55분 1화 ~ 4화 2021년 12월 03일 오후 5시 25분",
+    ],
+  },
+  {
+    title: "날씨의 아이",
+    titleJa: "天気の子",
+    titleEn: "Weathering with You",
+    logs: [
+      "2021년 12월 06일 오후 4시 12분 ~ 2021년 12월 06일 오후 5시 58분",
+    ],
+  },
+  {
+    title: "나는 100만 명의 목숨 위에 서 있다",
+    titleJa: "100万の命の上に俺は立っている",
+    titleEn: "I'm Standing on a Million Lives",
+    logs: [
+      "2021년 12월 13일 오후 2시 32분 1화 ~ 10화 2021년 12월 13일 오후 6시 02분",
+      "2021년 12월 13일 오후 6시 47분 11화 ~ 12화 2021년 12월 13일 오후 7시 29분",
+    ],
+  },
+  {
+    title: "무직전생 ~이세계에 갔으면 최선을 다한다~ 2쿨",
+    titleJa: "無職転生 〜異世界行ったら本気だす〜 第2クール",
+    titleEn: "Mushoku Tensei: Jobless Reincarnation Part 2",
+    logs: [
+      "2022년 03월 13일 오후 2시 40분 1화 ~ 12화 2022년 03월 13일 오후 6시 56분",
+    ],
+  },
+  {
+    title: "흔해빠진 직업으로 세계최강 2기",
+    titleJa: "ありふれた職業で世界最強 2nd season",
+    titleEn: "Arifureta: From Commonplace to World's Strongest Season 2",
+    logs: [
+      "2022년 05월 08일 오전 9시 45분 1화 ~ 12화 2022년 05월 08일 오후 2시 23분",
+    ],
+  },
+  {
+    title: "용사 그만둡니다.",
+    titleJa: "勇者、辞めます",
+    titleEn: "I'm Quitting Heroing",
+    logs: [
+      "2022년 06월 26일 오후 2시 36분 1화 ~ 12화 2022년 06월 26일 오후 06시 20분",
+    ],
+  },
+  {
+    title: "사상 최강의 대마왕, 마을사람 A로 전생하다",
+    titleJa: "史上最強の大魔王、村人Aに転生する",
+    titleEn: "The Greatest Demon Lord Is Reborn as a Typical Nobody",
+    logs: [
+      "2022년 07월 31일 오후5시 29분 1화 ~ 12화 중간 2022년 07월 31일 오후 9시 40분",
+      "2022년 07월 31일 오후10시 38분 12화 중간 ~ 12화 2022년 07월 31일 오후 10시 50분",
+    ],
+  },
+  {
+    title: "어서오세요 실력지상주의 교실에 2기",
+    titleJa: "ようこそ実力至上主義の教室へ 2nd Season",
+    titleEn: "Classroom of the Elite Season 2",
+    logs: [
+      "2022년 10월 28일 오후 1시 15분 1화 ~ 13화 2022년 10월 28일 오후 06시 02분",
+    ],
+  },
+  {
+    title: "월요일의 타와와 2기",
+    titleJa: "月曜日のたわわ2",
+    titleEn: "Tawawa on Monday Two",
+    logs: [
+      "2022년 10월 28일 오후 09시 14분 1화 ~ 13화 2022년 10월 28일 오후 10시 25분",
+    ],
+  },
+  {
+    title: "러브플롭스",
+    titleJa: "恋愛フロップス",
+    titleEn: "Love Flops",
+    logs: [
+      "2023년 06월 24일 오후 03시 33분 1화 ~ 2화 2023년 06월 24일 오후 04시 38분",
+      "2023년 07월 01일 오후 01시 50분 3화 ~ 12화 2023년 07월 01일 오후 05시 25분",
+    ],
+  },
+  {
+    title: "힘내라 동기짱",
+    titleJa: "がんばれ同期ちゃん",
+    titleEn: "Ganbare Douki-chan",
+    logs: [
+      "2023년 07월 06일 오전 12시 23분 1화 ~ 12화 2023년 07월 07일 01시 08분",
+    ],
+  },
+  {
+    title: "한자와 나오키 1기",
+    titleJa: "半沢直樹 第1期",
+    titleEn: "Hanzawa Naoki Season 1",
+    logs: [
+      "2023년 07월 13일 오후 10시 38분 1화 ~ 2화 중간 2023년 07월 14일 12시 42분",
+    ],
+  },
+  {
+    title: "흑의 소환사",
+    titleJa: "黒の召喚士",
+    titleEn: "Black Summoner",
+    logs: [
+      "2023년 07월 21일 오후 3시 24분 1화 ~ 12화 2023년 07월 21일 오후 8시 17분",
+    ],
+  },
+  {
+    title: "성검학원의 마도사",
+    titleJa: "聖剣学院の魔剣使い",
+    titleEn: "The Demon Sword Master of Excalibur Academy",
+    logs: [
+      "2024년 01월 07일 오전 10시 11분 1화 ~ 12화 2024년 01월 07일 오후 02시 20분",
+      "2024년 01월 07일 오후 3시 21분 12화 ~ 12화 2024년 01월 07일 오후 03시 33분",
+    ],
+  },
+  {
+    title: "러시아어로 부끄러워하는 옆자리의 아랴 양",
+    titleJa: "時々ボソッとロシア語でデレる隣のアーリャさん",
+    titleEn: "Alya Sometimes Hides Her Feelings in Russian",
+    logs: [
+      "2024년 12월 07일 오후 12시 51분 1화 ~ 12화 2024년 12월 07일 오후 5시 29분",
+    ],
+  },
+  {
+    title: "촌구석 아저씨 검성이 되다",
+    titleJa: "片田舎のおっさん、剣聖になる",
+    titleEn: "From Old Country Bumpkin to Master Swordsman",
+    logs: [
+      "2025년 09월 06일 오후 8시 38분 1화 ~ 12화 2025년 09월 07일 오전 12시 52분",
+    ],
+  },
+  {
+    title: "믿었던 동료들에게 던전 오지에서 살해당할 뻔했지만 기프트 『무한 뽑기』로 레벨 9999의 동료들을 손에 넣어 전 파티 멤버와 세계에 복수&『참교육!』합니다!",
+    titleJa: "信じていた仲間達にダンジョン奥地で殺されかけたがギフト『無限ガチャ』でレベル9999の仲間達を手に入れて元パーティーメンバーと世界に復讐＆『ざまぁ！』します！",
+    titleEn: "Backstabbed in a Backwater Dungeon, I Gained Level 9999 Companions Through Infinite Gacha and Will Have My Revenge!",
+    logs: [
+      "2026년 05월 02일 오후 3시 47분 1화 ~ 12화 2026년 05월 02일 오후 08시 07분",
+    ],
+  },
+  {
+    title: "친구 여동생이 나한테만 짜증나게 군다",
+    titleJa: "友達の妹が俺にだけウザい",
+    titleEn: "My Friend's Little Sister Has It In for Me!",
+    logs: [
+      "2026년 06월 19일 오후 10시 12분 1화 ~",
+    ],
+  },
+];
+
 window.SITE_CONTENT = {
   ui: {
     en: {
@@ -785,20 +2181,7 @@ window.SITE_CONTENT = {
         note:
           "Replace VIDEO_ID with your actual YouTube video ID. You can also edit this text in data/content.js.",
       },
-      animeEntries: [
-        {
-          title: "That Time I Got Reincarnated as a Slime Season 2 Part 2",
-          logs: ["2021-11-06 12:22 EP 1 ~ 12, 2021-11-06 16:45"],
-        },
-        {
-          title: "TONIKAWA: Over the Moon for You",
-          logs: ["2021-12-03 15:55 EP 1 ~ 4, 2021-12-03 17:25"],
-        },
-        {
-          title: "Weathering with You",
-          logs: ["2021-12-06 16:12 ~ 2021-12-06 17:58"],
-        },
-      ],
+      animeEntries: ANIME_ENTRIES,
       composition: [
         {
           title: "I wonder(arrangement)",
@@ -829,46 +2212,7 @@ window.SITE_CONTENT = {
         note:
           "VIDEO_ID 부분을 실제 유튜브 영상 ID로 바꾸면 페이지 안에서 재생됩니다. 설명 문구는 data/content.js에서 수정하면 됩니다.",
       },
-      animeEntries: [
-        {
-          title: "전생했더니 슬라임인 건에 대하여 2기 파트2",
-          logs: ["2021년 11월 06일 오후12시 22분 1화 ~ 12화 2021년 11월 06일 오후 4시 45분"],
-        },
-        {
-          title: "어쨌든 귀여워",
-          logs: ["2021년 12월 03일 오후 3시 55분 1화 ~ 4화 2021년 12월 03일 오후 5시 25분"],
-        },
-        {
-          title: "날씨의 아이",
-          logs: ["2021년 12월 06일 오후 4시 12분 ~ 2021년 12월 06일 오후 5시 58분"],
-        },
-        {
-          title: "나는 100만 명의 목숨 위에 서 있다",
-          logs: [
-            "2021년 12월 13일 오후 2시 32분 1화 ~ 10화 2021년 12월 13일 오후 6시 02분",
-            "2021년 12월 13일 오후 6시 47분 11화 ~ 12화 2021년 12월 13일 오후 7시 29분",
-          ],
-        },
-        {
-          title: "무직전생 ~이세계에 갔으면 최선을 다한다~ 2쿨",
-          logs: ["2022년 03월 13일 오후 2시 40분 1화 ~ 12화 2022년 03월 13일 오후 6시 56분"],
-        },
-        {
-          title: "흔해빠진 직업으로 세계최강 2기",
-          logs: ["2022년 05월 08일 오전 9시 45분 1화 ~ 12화 2022년 05월 08일 오후 2시 23분"],
-        },
-        {
-          title: "용사 그만둡니다.",
-          logs: ["2022년 06월 26일 오후 2시 36분 1화 ~ 12화 2022년 06월 26일 오후 06시 20분"],
-        },
-        {
-          title: "사상 최강의 대마왕, 마을사람 A로 전생하다",
-          logs: [
-            "2022년 07월 31일 오후5시 29분 1화 ~ 12화 중간 2022년 07월 31일 오후 9시 40분",
-            "2022년 07월 31일 오후10시 38분 12화 중간 ~ 12화 2022년 07월 31일 오후 10시 50분",
-          ],
-        },
-      ],
+      animeEntries: ANIME_ENTRIES,
       composition: [
         {
           title: "I wonder(arrangement)",
@@ -899,20 +2243,7 @@ window.SITE_CONTENT = {
         note:
           "VIDEO_IDを実際のYouTube動画IDに置き換えるとページ内で再生できます。",
       },
-      animeEntries: [
-        {
-          title: "転生したらスライムだった件 第2期 Part 2",
-          logs: ["2021-11-06 12:22 EP 1 ~ 12, 2021-11-06 16:45"],
-        },
-        {
-          title: "トニカクカワイイ",
-          logs: ["2021-12-03 15:55 EP 1 ~ 4, 2021-12-03 17:25"],
-        },
-        {
-          title: "天気の子",
-          logs: ["2021-12-06 16:12 ~ 2021-12-06 17:58"],
-        },
-      ],
+      animeEntries: ANIME_ENTRIES,
       composition: [
         {
          title: "I wonder(arrangement)",
