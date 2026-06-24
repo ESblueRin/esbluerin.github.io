@@ -490,16 +490,49 @@ function renderAnimeLog(entries) {
       ${olderHtml}
     </div>
 
-    <button class="anime-toggle-button" type="button" id="animeToggleButton">
-      더 보기 (${olderEntries.length})
+    <button class="anime-toggle-button" type="button" id="animeToggleButton" data-count="${olderEntries.length}">
+      ${getAnimeToggleLabel(false, olderEntries.length)}
     </button>
   `;
 }
 
+function getAnimeTitle(entry) {
+  if (state.lang === "ja") {
+    return entry.titleJa || entry.title || entry.titleEn || "";
+  }
+
+  if (state.lang === "en") {
+    return entry.titleEn || entry.title || entry.titleJa || "";
+  }
+
+  return entry.title || entry.titleEn || entry.titleJa || "";
+}
+
 function renderAnimeEntry(entry) {
+  const mainTitle = getAnimeTitle(entry);
+
   return `
     <article class="anime-entry">
-      <h3>${escapeHtml(entry.title)}</h3>
+      <h3>${escapeHtml(mainTitle)}</h3>
+
+      ${
+        state.lang !== "ko" && entry.title
+          ? `<p class="anime-title-sub"><strong>KR</strong> ${escapeHtml(entry.title)}</p>`
+          : ""
+      }
+
+      ${
+        state.lang !== "ja" && entry.titleJa
+          ? `<p class="anime-title-sub"><strong>JP</strong> ${escapeHtml(entry.titleJa)}</p>`
+          : ""
+      }
+
+      ${
+        state.lang !== "en" && entry.titleEn
+          ? `<p class="anime-title-sub"><strong>EN</strong> ${escapeHtml(entry.titleEn)}</p>`
+          : ""
+      }
+
       ${entry.logs.map((log) => `<p>${escapeHtml(log)}</p>`).join("")}
     </article>
   `;
@@ -528,6 +561,18 @@ function bindDynamicEffects() {
   bindAnimeToggle();
 }
 
+function getAnimeToggleLabel(isOpen, count) {
+  if (state.lang === "en") {
+    return isOpen ? "Collapse" : `Show more (${count})`;
+  }
+
+  if (state.lang === "ja") {
+    return isOpen ? "閉じる" : `もっと見る (${count})`;
+  }
+
+  return isOpen ? "접기" : `더 보기 (${count})`;
+}
+
 function bindAnimeToggle() {
   const toggleButton = document.getElementById("animeToggleButton");
   const olderAnimeLog = document.getElementById("olderAnimeLog");
@@ -536,10 +581,9 @@ function bindAnimeToggle() {
 
   toggleButton.addEventListener("click", () => {
     const isOpen = olderAnimeLog.classList.toggle("open");
+    const count = Number(toggleButton.dataset.count || olderAnimeLog.children.length);
 
-    toggleButton.textContent = isOpen
-      ? "접기"
-      : `더 보기 (${olderAnimeLog.children.length})`;
+    toggleButton.textContent = getAnimeToggleLabel(isOpen, count);
   });
 }
 
