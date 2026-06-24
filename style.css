@@ -226,11 +226,23 @@ body[data-theme="dark"] .rain-mist {
 
 @keyframes softRainFall {
   0% {
-    transform: translate3d(0, -30vh, 0) rotate(var(--rain-angle));
+    transform: translate3d(0, -34vh, 0) rotate(var(--rain-angle));
+  }
+
+  18% {
+    transform: translate3d(calc(var(--rain-drift) * 0.12), -16vh, 0) rotate(var(--rain-angle));
+  }
+
+  42% {
+    transform: translate3d(calc(var(--rain-drift) * 0.35), 18vh, 0) rotate(var(--rain-angle));
+  }
+
+  68% {
+    transform: translate3d(calc(var(--rain-drift) * 0.68), 66vh, 0) rotate(var(--rain-angle));
   }
 
   100% {
-    transform: translate3d(var(--rain-drift), 132vh, 0) rotate(var(--rain-angle));
+    transform: translate3d(var(--rain-drift), 142vh, 0) rotate(var(--rain-angle));
   }
 }
 
