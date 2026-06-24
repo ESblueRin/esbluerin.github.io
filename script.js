@@ -762,9 +762,8 @@ function bindHeaderEvents() {
   });
 
   document.querySelector(".theme-toggle").addEventListener("click", () => {
-    state.theme = state.theme === "dark" ? "light" : "dark";
-    localStorage.setItem("site-theme", state.theme);
-    document.body.dataset.theme = state.theme;
+    const nextTheme = state.theme === "dark" ? "light" : "dark";
+    changeThemeSmoothly(nextTheme);
   });
 }
 
